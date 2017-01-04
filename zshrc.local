@@ -1,9 +1,11 @@
 #eval "$(rbenv init - --no-rehash)"
 #export PATH="$HOME/.bin:$PATH"
 #
-antigen bundle lukechilds/zsh-nvm
 
-antigen use oh-my-zsh
+source "$HOME/.zsh-nvm/zsh-nvm.plugin.zsh"
+#antigen use oh-my-zsh
+#antigen bundle lukechilds/zsh-nvm
 
-antigen bundle git
+
+#antigen bundle git
 
