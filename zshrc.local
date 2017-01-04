@@ -1,0 +1,5 @@
+#eval "$(rbenv init - --no-rehash)"
+#export PATH="$HOME/.bin:$PATH"
+#
+antigen bundle lukechilds/zsh-nvm
+

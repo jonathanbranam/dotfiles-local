@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# This will be executed after thoughtbot/laptop mac script completes.
+
+brew install "shellcheck"
+brew install "wget"
+
