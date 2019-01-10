@@ -1,0 +1,7 @@
+Plug 'digitaltoad/vim-pug'
+"Plug 'mikewest/vimroom'
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-obsession'
