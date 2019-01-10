@@ -1,1 +1,2 @@
-source $HOME/antigen/antigen.zsh
+# TEMP not using antigen
+# source $HOME/antigen/antigen.zsh
