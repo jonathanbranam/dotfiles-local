@@ -7,7 +7,8 @@
 #antigen bundle lukechilds/zsh-nvm
 
 # ailin
-export HOMEBREW_GITHUB_API_TOKEN="e49be2d715a9a7a4295763d1c6bd65bfbf286198"
+# Not sure if this is necessary any longer
+#export HOMEBREW_GITHUB_API_TOKEN=""
 
 # ailin
 . /Volumes/user/jbranam/.asdf/installs/python/miniconda3-4.3.30/etc/profile.d/conda.sh
