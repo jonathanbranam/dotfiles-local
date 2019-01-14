@@ -1,0 +1,16 @@
+# vi: syntax=tmux
+set -g mouse on
+
+# Thoughtbot dotfiles already bind to C-s
+# Bind to GNU screen prefix
+# unbind C-a
+
+# Not sure if this is needed:
+# set -g prefix C-s
+
+# Definitely don't need these
+# bind-key C-b send-prefix
+# bind-key C-a send-prefix -2
+
+set-option -g set-titles on
+set-option -g set-titles-string "#{session_name}"
