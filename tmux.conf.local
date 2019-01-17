@@ -6,7 +6,8 @@ set -g mouse on
 # unbind C-a
 
 # Not sure if this is needed:
-# set -g prefix C-s
+set -g prefix C-s
+set -g prefix2 None
 
 # Definitely don't need these
 # bind-key C-b send-prefix
