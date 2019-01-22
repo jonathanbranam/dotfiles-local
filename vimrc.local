@@ -6,4 +6,7 @@ set smartcase
 let g:seoul256_background = 233
 colo seoul256
 
+" CtrlP: ignore elixir deps folder
+set wildignore+=*/deps/*
+
 set mouse=a
