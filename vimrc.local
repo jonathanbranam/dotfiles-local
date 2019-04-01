@@ -2,6 +2,9 @@ set hlsearch
 set ignorecase
 set smartcase
 
+" <LocalLeader>
+let maplocalleader = ","
+
 " https://github.com/junegunn/seoul256.vim
 let g:seoul256_background = 233
 colo seoul256
@@ -9,4 +12,27 @@ colo seoul256
 " CtrlP: ignore elixir deps folder
 set wildignore+=*/deps/*
 
+" I like to use the mouse to scroll!
 set mouse=a
+" this is nice but it also kills tmux highlighting...
+"noremap <LeftMouse> <LeftDrag>
+" not sure this second line is necessary
+"noremap! <LeftMouse> <LeftDrag>
+
+" beorg only supports a single org folder
+" let g:org_agenda_files=['~/Dropbox/personal/org/*.org']
+let g:org_agenda_files=['~/Dropbox/personal/org/sigstr*.org']
+
+" let g:org_todo_keywords=['TODO', 'FEEDBACK', 'VERIFY', '|', 'DONE', 'DELEGATED']
+
+let g:org_todo_keywords = [
+  \ ['TODO(t)', '|', 'DONE(d)'],
+  \ ['REPORT(r)', 'BUG(b)', 'KNOWNCAUSE(k)', '|', 'FIXED(f)'],
+  \ ['CANCELED(c)']]
+
+" utl
+let g:utl_cfg_hdl_scm_http_system = "Start! open '%u'"
+let g:utl_cfg_hdl_mt_generic = "Start! open '%u'"
+" from utl help
+" let g:utl_cfg_hdl_scm_http_system = "!open '%u'"
+
