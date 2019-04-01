@@ -5,6 +5,14 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-obsession'
-Plug 'jceb/vim-orgmode'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-speeddating'
+" dispatch commands in background
+Plug 'tpope/vim-dispatch'
+Plug 'jonathanbranam/utl.vim'
+Plug 'jceb/vim-orgmode'
 Plug 'scrooloose/nerdtree'
+" Status line
+Plug 'vim-airline/vim-airline'
+" git stuff in the gutter
+Plug 'airblade/vim-gitgutter'
