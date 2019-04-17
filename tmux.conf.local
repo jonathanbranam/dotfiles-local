@@ -1,13 +1,15 @@
 # vi: syntax=tmux
 set -g mouse on
 
-# Thoughtbot dotfiles already bind to C-s
+# Thoughtbot dotfiles binds prefix2 to C-s
 # Bind to GNU screen prefix
 # unbind C-a
 
 # Not sure if this is needed:
 set -g prefix C-s
 set -g prefix2 None
+# prefix -> forward-incremental-history-search
+bind-key C-s send-prefix
 
 # Definitely don't need these
 # bind-key C-b send-prefix

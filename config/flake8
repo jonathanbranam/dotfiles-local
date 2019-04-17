@@ -1,0 +1,7 @@
+[flake8]
+# E121: continuation line under-indent hanging indent
+# E124: closing bracket does not match visual indent
+# E126: continuation line over-indent hanging indent
+# E128: continuation line under-indent
+# E226: missing whitespace around arithmetic operator
+ignore = E121, E124, E126, E128, E226
