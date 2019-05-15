@@ -7,8 +7,10 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-unimpaired'
 " dispatch commands in background
 Plug 'tpope/vim-dispatch'
+Plug 'mattn/calendar-vim'
 Plug 'jonathanbranam/utl.vim'
 Plug 'jceb/vim-orgmode'
 Plug 'scrooloose/nerdtree'
@@ -16,3 +18,5 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 " git stuff in the gutter
 Plug 'airblade/vim-gitgutter'
+" database access from vim
+Plug 'tpope/vim-dadbod'
