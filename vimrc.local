@@ -5,6 +5,9 @@ set smartcase
 " <LocalLeader>
 let maplocalleader = ","
 
+" ag is NOT fast enough that CtrlP doesn't need to cache
+let g:ctrlp_use_caching = 1
+
 " https://github.com/junegunn/seoul256.vim
 let g:seoul256_background = 233
 colo seoul256
