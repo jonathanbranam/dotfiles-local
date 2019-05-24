@@ -12,7 +12,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
 Plug 'mattn/calendar-vim'
 Plug 'jonathanbranam/utl.vim'
-Plug 'jceb/vim-orgmode'
+Plug 'jonathanbranam/vim-orgmode'
 Plug 'scrooloose/nerdtree'
 " Status line
 Plug 'vim-airline/vim-airline'
