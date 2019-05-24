@@ -6,10 +6,6 @@
 #antigen use oh-my-zsh
 #antigen bundle lukechilds/zsh-nvm
 
-# ailin
-# Not sure if this is necessary any longer
-#export HOMEBREW_GITHUB_API_TOKEN=""
-
 # sunquan-start
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -24,7 +20,6 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
 # sunquan-end
 
 . $HOME/.asdf/asdf.sh
