@@ -2,6 +2,8 @@
 #export PATH="$HOME/.bin:$PATH"
 #
 
+setopt histignorespace
+
 #source "$HOME/.zsh-nvm/zsh-nvm.plugin.zsh"
 #antigen use oh-my-zsh
 #antigen bundle lukechilds/zsh-nvm
