@@ -14,6 +14,7 @@ setopt histignorespace
 
 # ailin
 . /Volumes/user/jbranam/.asdf/installs/python/miniconda3-4.3.30/etc/profile.d/conda.sh
+
 . $HOME/.asdf/asdf.sh
 
 #antigen bundle git
