@@ -12,7 +12,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
 Plug 'mattn/calendar-vim'
 Plug 'jonathanbranam/utl.vim'
-Plug 'jceb/vim-orgmode'
+Plug 'jonathanbranam/vim-orgmode'
 Plug 'scrooloose/nerdtree'
 " Status line
 Plug 'vim-airline/vim-airline'
@@ -20,3 +20,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 " database access from vim
 Plug 'tpope/vim-dadbod'
+Plug 'christoomey/vim-tmux-navigator'
+" Chording
+Plug 'kana/vim-arpeggio'
+" Running TMux commands from vim... needs more I think
+" Plug 'benmills/vimux'
+" Try this one first, has command sending to tmux
+Plug 'jebaum/vim-tmuxify'
