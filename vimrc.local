@@ -34,8 +34,9 @@ let g:org_agenda_files=[
 
 let g:org_todo_keywords = [
   \ ['TODO(t)', 'WAITING(w)', '|', 'DONE(d)'],
+  \ ['PROJECT(p)', '|', 'COMPLETE(c)'],
   \ ['REPORT(r)', 'BUG(b)', 'KNOWNCAUSE(k)', '|', 'FIXED(f)'],
-  \ ['CANCELED(c)']]
+  \ ['CANCELED(x)']]
 
 " utl
 let g:utl_cfg_hdl_scm_http_system = "Start! open '%u'"
