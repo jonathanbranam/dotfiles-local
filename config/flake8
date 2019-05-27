@@ -1,7 +1,28 @@
 [flake8]
-# E121: continuation line under-indent hanging indent
-# E124: closing bracket does not match visual indent
-# E126: continuation line over-indent hanging indent
-# E128: continuation line under-indent
-# E226: missing whitespace around arithmetic operator
-ignore = E121, E124, E126, E128, E226
+ignore =
+  # E121 - visual indent underindent
+  E121,
+  # E124 - closing bracket does not match visual indent
+  E124,
+  # E126 - continuation visual indent overindent
+  E126,
+  # E127 - visual indent overindent
+  E127,
+  # E128 - continuation visual indent underindent
+  E128,
+  # E201 - whitespace after [
+  E201,
+  # E203 - whitespace before :
+  E203,
+  # E226 - whitespace around math
+  E226,
+  # E231 - space after comma in list
+  E231,
+  # E241 - multiple spaces after ,
+  E241,
+  # E301 - one blank line between methods
+  E301,
+  # E302 - two blank lines between functions
+  E302,
+  # E501 - line too long
+  E501
