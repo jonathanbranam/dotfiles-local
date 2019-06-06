@@ -9,6 +9,10 @@ setopt histignorespace
 #antigen bundle lukechilds/zsh-nvm
 
 # sunquan-start
+
+# Set JAVA_HOME to JDK8 for PySpark and Spark
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/jonathan/.asdf/installs/python/miniconda3-4.3.30/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
