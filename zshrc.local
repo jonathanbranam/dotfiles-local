@@ -11,7 +11,9 @@ setopt histignorespace
 # sunquan-start
 
 # Set JAVA_HOME to JDK8 for PySpark and Spark
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+# Previous not necessary if you setup spark properly
+export SPARK_HOME=/opt/spark
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
