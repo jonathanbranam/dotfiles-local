@@ -25,9 +25,7 @@ set mouse=a
 " beorg only supports a single org folder
 " let g:org_agenda_files=['~/Dropbox/personal/org/*.org']
 let g:org_agenda_files=[
-  \ '~/Dropbox/personal/org/sigstr*.org',
-  \ '~/Dropbox/personal/org/personal*.org',
-  \ '~/Dropbox/personal/org/refile*.org'
+  \ '~/Dropbox/personal/org/*.org'
   \ ]
 
 " let g:org_todo_keywords=['TODO', 'FEEDBACK', 'VERIFY', '|', 'DONE', 'DELEGATED']
