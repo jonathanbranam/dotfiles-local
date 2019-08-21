@@ -18,6 +18,10 @@ if [ -f '/Users/jbranam/installs/google-cloud-sdk/path.zsh.inc' ]; then . '/User
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jbranam/installs/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jbranam/installs/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias lerna='npx --no-install lerna'
+alias yarn='npx --no-install yarn'
+
 # MetaCX Laptop section END
 
 #antigen bundle git
