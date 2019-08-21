@@ -8,7 +8,11 @@ setopt histignorespace
 #antigen use oh-my-zsh
 #antigen bundle lukechilds/zsh-nvm
 
-. $HOME/.asdf/asdf.sh
+# MetaCX Laptop section START
+# . $HOME/.asdf/asdf.sh
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+# MetaCX Laptop section END
 
 #antigen bundle git
 
