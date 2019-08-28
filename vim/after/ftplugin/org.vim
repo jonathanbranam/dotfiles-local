@@ -2,4 +2,11 @@
 "
 setlocal tabstop=2 shiftwidth=2
 
-set spell
+" Disable some highlights from vim-orgmode
+" org_italic is between // and highlights all over code
+hi org_italic    term=NONE    cterm=NONE    gui=NONE
+" org_code is between == or ~~ and highlights all over code
+hi org_code    term=NONE    cterm=NONE    gui=NONE
+setl formatoptions-=t
+" setl nospell
+" set spell
