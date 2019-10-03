@@ -7,6 +7,8 @@ setlocal tabstop=2 shiftwidth=2
 hi org_italic    term=NONE    cterm=NONE    gui=NONE
 " org_code is between == or ~~ and highlights all over code
 hi org_code    term=NONE    cterm=NONE    gui=NONE
+" org_underline is between pairs of _
+hi org_underline    term=NONE    cterm=NONE    gui=NONE
 setl formatoptions-=t
 " setl nospell
 " set spell
