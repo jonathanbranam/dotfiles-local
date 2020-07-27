@@ -1,0 +1,59 @@
+
+screenshots() {
+  echo Setting screenshot folder to "$1"
+  defaults write com.apple.screencapture location "$1"
+}
+
+# display 1 default
+
+display() {
+  local config=$1
+  echo params: $#
+  if [[ $# -ge 2 ]]
+  then
+    local options=$2
+  else
+    local options="default"
+  fi
+  echo Config: $config Options: $options
+
+  if [[ $config = "1" ]]
+  then
+    if [[ $options = "default" ]]
+    then
+      displayplacer "id:577AC458-8531-59E0-E05B-35BB9AE56453 res:1920x1200 color_depth:4 scaling:on origin:(0,0) degree:0"
+    elif [[ $options = "unscaled" ]]
+    then
+      displayplacer "id:577AC458-8531-59E0-E05B-35BB9AE56453 res:1680x1050 color_depth:4 scaling:on origin:(0,0) degree:0"
+    fi
+  elif [[ $config = "colab" ]]
+  then
+    if [[ $options = "default" ]]
+    then
+      echo colab default
+      displayplacer "id:577AC458-8531-59E0-E05B-35BB9AE56453 res:1680x1050 color_depth:8 scaling:on origin:(0,0) degree:0" "id:CC25F679-A770-2BA2-53D6-61781B7FFDB8 res:3360x1890 hz:60 color_depth:8 scaling:on origin:(-3360,-72) degree:0"
+    elif [[ $options = "unscaled" ]]
+    then
+      echo colab default
+      displayplacer "id:577AC458-8531-59E0-E05B-35BB9AE56453 res:1680x1050 color_depth:8 scaling:on origin:(0,0) degree:0" "id:CC25F679-A770-2BA2-53D6-61781B7FFDB8 res:1920x1080 hz:60 color_depth:8 scaling:on origin:(-1920,-72) degree:0"
+    else
+      echo Unknown config option $options
+    fi
+  elif [[ $config = "home" ]]
+  then
+    if [[ $options = "default" ]]
+    then
+      echo home default
+      displayplacer "id:577AC458-8531-59E0-E05B-35BB9AE56453 res:1680x1050 color_depth:8 scaling:on origin:(0,0) degree:0" "id:CC25F679-A770-2BA2-53D6-61781B7FFDB8 res:3360x1890 hz:60 color_depth:8 scaling:on origin:(1680,-840) degree:0"
+    elif [[ $options = "unscaled" ]]
+    then
+      echo home unscaled
+      displayplacer "id:577AC458-8531-59E0-E05B-35BB9AE56453 res:1680x1050 color_depth:8 scaling:on origin:(0,0) degree:0" "id:CC25F679-A770-2BA2-53D6-61781B7FFDB8 res:1920x1080 hz:60 color_depth:8 scaling:on origin:(1680,0) degree:0"
+    else
+      echo Unknown config option $options
+    fi
+  else
+    echo Unknown config $config
+  fi
+
+}
