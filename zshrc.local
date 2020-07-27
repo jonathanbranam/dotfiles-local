@@ -8,7 +8,14 @@ setopt histignorespace
 #antigen use oh-my-zsh
 #antigen bundle lukechilds/zsh-nvm
 
+# Not sure I want to use asdf any longer
+# . $HOME/.asdf/asdf.sh
+
 # MetaCX Laptop section START
+
+## rbenv START
+eval "$(rbenv init -)"
+## rbenv END
 
 ## pyenv START
 export PYENV_ROOT="$HOME/.pyenv"
@@ -34,8 +41,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 ## Anaconda END
-
-# . $HOME/.asdf/asdf.sh
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
