@@ -26,7 +26,7 @@ display() {
     then
       displayplacer "id:577AC458-8531-59E0-E05B-35BB9AE56453 res:1680x1050 color_depth:4 scaling:on origin:(0,0) degree:0"
     fi
-  elif [[ $config = "colab" ]]
+  elif [[ $config = "mcx-colab" ]]
   then
     if [[ $options = "default" ]]
     then
@@ -39,7 +39,7 @@ display() {
     else
       echo Unknown config option $options
     fi
-  elif [[ $config = "home" ]]
+  elif [[ $config = "mcx-home" ]]
   then
     if [[ $options = "default" ]]
     then
