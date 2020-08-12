@@ -6,6 +6,9 @@ setopt histignorespace
 
 # LifeOmic Laptop START
 
+# Local scripts that shouldn't be in github
+export PATH="$HOME/.local-bin:$PATH"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # PyEnv Start
@@ -21,6 +24,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # NVM End
+
+# AWS Config Start
+export AWS_PROFILE=lifeomic-dev
+export AWS_SDK_LOAD_CONFIG=true
+export AWS_REGION=us-east-1
+# AWS Config End
+
 
 # LifeOmic Laptop END
 

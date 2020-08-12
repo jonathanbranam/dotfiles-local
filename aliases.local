@@ -57,3 +57,11 @@ display() {
   fi
 
 }
+
+
+lifeomic-yarn() {
+  ls "$(yarn global bin)" | grep lifeomic-
+}
+
+alias get-dev-vpn-access="node $HOME/work/repos/vpn-console-access-opener/src/local/get-vpn-access.js --profile lifeomic-dev"
+alias get-infra-vpn-access="node $HOME/work/repos/vpn-console-access-opener/src/local/get-vpn-access.js --profile lifeomic-infra"
