@@ -44,15 +44,18 @@ bind-key -T copy-mode-vi C-k select-pane -U
 bind-key -T copy-mode-vi C-l select-pane -R
 bind-key -T copy-mode-vi C-\ select-pane -l
 
+bind R source-file "$HOME/.tmux.conf"
+
 
 # List of plugins
-# set -g @plugin 'tmux-plugins/tmux-sensible'
 # set -g @plugin 'tmux-plugins/tpm'
+# set -g @plugin 'tmux-plugins/tmux-sensible'
 # set -g @plugin 'tmux-plugins/tmux-resurrect'
 
 # Alternative required since sourcing separate file with thoughtbot:
 set -g @tpm_plugins '              \
   tmux-plugins/tpm                 \
+  tmux-plugins/tmux-sensible       \
   tmux-plugins/tmux-resurrect      \
   tmux-plugins/tmux-pain-control   \
 '
@@ -60,6 +63,10 @@ set -g @tpm_plugins '              \
 # set -g @plugin 'github_username/plugin_name'
 # set -g @plugin 'git@github.com/user/plugin'
 # set -g @plugin 'git@bitbucket.com/user/plugin'
+
+
+# Override new window binding from tmux-pain-control
+bind-key "c" new-window
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of
 # tmux.conf)

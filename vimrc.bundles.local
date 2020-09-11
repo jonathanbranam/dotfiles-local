@@ -27,3 +27,6 @@ Plug 'kana/vim-arpeggio'
 " Plug 'benmills/vimux'
 " Try this one first, has command sending to tmux
 Plug 'jebaum/vim-tmuxify'
+
+" Python plugins
+Plug 'nvie/vim-flake8'
