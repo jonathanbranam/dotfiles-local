@@ -7,7 +7,7 @@ setopt histignorespace
 # LifeOmic Laptop START
 
 # Local scripts that shouldn't be in github
-export PATH="$HOME/.local-bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -30,6 +30,25 @@ export AWS_PROFILE=lifeomic-dev
 export AWS_SDK_LOAD_CONFIG=true
 export AWS_REGION=us-east-1
 # AWS Config End
+
+# Spark Start
+export SPARK_HOME=/opt/spark
+export PATH=$SPARK_HOME/bin:$PATH
+# Spark End
+
+# Java Start
+jdk() {
+  if [ $# -eq 0 ]; then
+    /usr/libexec/java_home -V
+  else
+    version=$1
+    export JAVA_HOME=$(/usr/libexec/java_home -v"$version")
+    java -version
+  fi
+}
+
+jdk 1.8 &> /dev/null
+# Java End
 
 
 # LifeOmic Laptop END
