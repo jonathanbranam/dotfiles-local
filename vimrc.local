@@ -31,7 +31,7 @@ let g:org_agenda_files=[
 " let g:org_todo_keywords=['TODO', 'FEEDBACK', 'VERIFY', '|', 'DONE', 'DELEGATED']
 
 let g:org_todo_keywords = [
-  \ ['TODO(t)', 'WAITING(w)', '|', 'DONE(d)'],
+  \ ['TODO(t)', 'URGENT(u)', 'WAITING(w)', '|', 'DONE(d)'],
   \ ['PROJECT(p)', 'SOMEDAY(s)', '|', 'COMPLETE(c)'],
   \ ['CANCELED(x)']]
 
@@ -46,3 +46,6 @@ let g:utl_cfg_hdl_mt_generic = "Start! open '%u'"
 " Adapted from
 " https://vim.fandom.com/wiki/Search_for_current_word_in_multiple_files
 nnoremap gr :Ag '\b<cword>\b'<CR>
+
+nnoremap <Leader>w :set formatoptions-=t<CR>
+nnoremap <Leader>W :set formatoptions+=t<CR>
