@@ -30,3 +30,6 @@ Plug 'jebaum/vim-tmuxify'
 
 " Python plugins
 Plug 'nvie/vim-flake8'
+
+" Terraform plugin
+Plug 'hashivim/vim-terraform'

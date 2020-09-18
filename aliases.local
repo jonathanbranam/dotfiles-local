@@ -1,4 +1,11 @@
 
+# Aliases
+
+# Clear tmux history along with terminal, if running
+alias clear='clear; if [[ -n $TMUX ]]; then tmux clear-history; fi'
+
+# Functions
+
 screenshots() {
   echo Setting screenshot folder to "$1"
   defaults write com.apple.screencapture location "$1"
