@@ -22,6 +22,10 @@ set-option -g set-titles-string "#{session_name}"
 bind '"' split-window -c "#{pane_current_path}"
 bind % split-window -h -c "#{pane_current_path}"
 
+# Shift-Left/Right to move a window in the list
+bind-key -r S-Left swap-window -d -t -1
+bind-key -r S-Right swap-window -d -t +1
+
 # Use v y r (why isn't r V?) for tmux copy/paste
 # http://www.rushiagr.com/blog/2016/06/16/everything-you-need-to-know-about-tmux-copy-pasting/
 bind-key -T copy-mode-vi v send-keys -X begin-selection
@@ -66,7 +70,6 @@ set -g @tpm_plugins '              \
 # set -g @plugin 'github_username/plugin_name'
 # set -g @plugin 'git@github.com/user/plugin'
 # set -g @plugin 'git@bitbucket.com/user/plugin'
-
 
 # Override new window binding from tmux-pain-control
 bind-key "c" new-window
