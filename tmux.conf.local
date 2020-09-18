@@ -26,6 +26,10 @@ bind % split-window -h -c "#{pane_current_path}"
 bind-key -r S-Left swap-window -d -t -1
 bind-key -r S-Right swap-window -d -t +1
 
+# Enter a number to swap windows or -/+N to move left/right
+# This overwrites the move-window binding which seems useless
+bind-key . command-prompt "swap-window -d -t '%%'"
+
 # Use v y r (why isn't r V?) for tmux copy/paste
 # http://www.rushiagr.com/blog/2016/06/16/everything-you-need-to-know-about-tmux-copy-pasting/
 bind-key -T copy-mode-vi v send-keys -X begin-selection
