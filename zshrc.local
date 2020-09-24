@@ -51,6 +51,12 @@ jdk 1.8 &> /dev/null
 # Java End
 
 
+# Terraform Start
+# export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
+export PATH="/usr/local/opt/terraform@0.12/bin:$PATH"
+# Terraform End
+
+
 # LifeOmic Laptop END
 
 #source "$HOME/.zsh-nvm/zsh-nvm.plugin.zsh"
