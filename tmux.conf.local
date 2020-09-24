@@ -23,8 +23,11 @@ bind '"' split-window -c "#{pane_current_path}"
 bind % split-window -h -c "#{pane_current_path}"
 
 # Shift-Left/Right to move a window in the list
-bind-key -r S-Left swap-window -d -t -1
-bind-key -r S-Right swap-window -d -t +1
+# bind-key -r S-Left swap-window -d -t -1
+# bind-key -r S-Right swap-window -d -t +1
+# H/L to move a window in the list
+bind-key -r H swap-window -d -t -1
+bind-key -r L swap-window -d -t +1
 
 # Enter a number to swap windows or -/+N to move left/right
 # This overwrites the move-window binding which seems useless
