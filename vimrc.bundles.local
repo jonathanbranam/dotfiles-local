@@ -5,11 +5,16 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-obsession'
+" Includes programming case conversions but hard to use
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-unimpaired'
 " dispatch commands in background
 Plug 'tpope/vim-dispatch'
+
+" Better programming case conversions
+Plug 'arthurxavierx/vim-caser'
+
 Plug 'mattn/calendar-vim'
 Plug 'jonathanbranam/utl.vim'
 Plug 'jonathanbranam/vim-orgmode'
@@ -33,3 +38,6 @@ Plug 'nvie/vim-flake8'
 
 " Terraform plugin
 Plug 'hashivim/vim-terraform'
+
+" readline bindings to vim command-line
+Plug 'ryvnf/readline.vim'
