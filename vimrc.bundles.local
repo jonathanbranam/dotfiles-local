@@ -41,3 +41,13 @@ Plug 'hashivim/vim-terraform'
 
 " readline bindings to vim command-line
 Plug 'ryvnf/readline.vim'
+
+" Scala plugins
+Plug 'derekwyatt/vim-scala'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+" Working better with buffers
+" This was breaking my Ag search
+" Plug 'fholgado/minibufexpl.vim'

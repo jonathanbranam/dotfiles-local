@@ -47,5 +47,17 @@ let g:utl_cfg_hdl_mt_generic = "Start! open '%u'"
 " https://vim.fandom.com/wiki/Search_for_current_word_in_multiple_files
 nnoremap gr :Ag '\b<cword>\b'<CR>
 
+" Toggle word wrap on/off
 nnoremap <Leader>w :set formatoptions-=t<CR>
 nnoremap <Leader>W :set formatoptions+=t<CR>
+
+" Directories to hide in NERDTree
+let g:NERDTreeIgnore = ['^node_modules$']
+
+" Cycle to MRU buffers using minibug
+" This isn't working for some reason - iTerm2 had these bound maybe they aren't
+" passing through
+" nnoremap <C-TAB>   :MBEbf<CR>
+" nnoremap <C-S-TAB> :MBEbb<CR>
+" nnoremap <Leader>l :MBEbf<CR>
+" nnoremap <Leader>h :MBEbb<CR>

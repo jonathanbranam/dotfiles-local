@@ -1,4 +1,5 @@
-
+[init]
+  defaultBranch = master
 [user]
   name = Jonathan Branam
   email = jonathan.branam@lifeomic.com
