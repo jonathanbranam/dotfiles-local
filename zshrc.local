@@ -8,13 +8,6 @@ setopt histignorespace
 #antigen use oh-my-zsh
 #antigen bundle lukechilds/zsh-nvm
 
-# ailin
-# Not sure if this is necessary any longer
-#export HOMEBREW_GITHUB_API_TOKEN=""
-
-# ailin
-. /Volumes/user/jbranam/.asdf/installs/python/miniconda3-4.3.30/etc/profile.d/conda.sh
-
 . $HOME/.asdf/asdf.sh
 
 #antigen bundle git
