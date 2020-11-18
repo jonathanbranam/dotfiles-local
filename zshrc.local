@@ -14,3 +14,7 @@ setopt histignorespace
 
 shuf() { perl -MList::Util=shuffle -e 'print shuffle(<>);' "$@"; }
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Branch local config
+[[ -f ~/.zshrc.branch.local ]] && source ~/.zshrc.branch.local
