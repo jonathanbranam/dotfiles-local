@@ -1,0 +1,54 @@
+# LifeOmic Laptop START
+
+# Local scripts that shouldn't be in github
+export PATH="$HOME/.local/bin:$PATH"
+
+# PyEnv START
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+# PyEnv END
+
+# NVM START
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# NVM END
+
+# Spark START
+export SPARK_HOME=/opt/spark
+export PATH=$SPARK_HOME/bin:$PATH
+# Spark END
+
+# Java START
+jdk() {
+  if [ $# -eq 0 ]; then
+    /usr/libexec/java_home -V
+  else
+    version=$1
+    export JAVA_HOME=$(/usr/libexec/java_home -v"$version")
+    java -version
+  fi
+}
+
+jdk 1.8 &> /dev/null
+# Java END
+
+
+# Terraform START
+# export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
+export PATH="/usr/local/opt/terraform@0.12/bin:$PATH"
+# Terraform END
+
+# LifeOmic AWS Access START
+# export AWS_SDK_LOAD_CONFIG=true
+source lifeomic-aws partition commercial
+LIFEOMIC_LOGIN_USERNAME=first.last
+LIFEOMIC_LOGIN_MFA=push
+export LIFEOMIC_LOGIN_USERNAME LIFEOMIC_LOGIN_MFA
+# LifeOmic AWS Access END
+
+
+# LifeOmic Laptop END

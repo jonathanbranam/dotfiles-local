@@ -4,61 +4,6 @@
 
 setopt histignorespace
 
-# LifeOmic Laptop START
-
-# Local scripts that shouldn't be in github
-export PATH="$HOME/.local/bin:$PATH"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# PyEnv Start
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-# PyEnv End
-
-# NVM Start
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# NVM End
-
-# AWS Config Start
-export AWS_PROFILE=lifeomic-dev
-export AWS_SDK_LOAD_CONFIG=true
-export AWS_REGION=us-east-1
-# AWS Config End
-
-# Spark Start
-export SPARK_HOME=/opt/spark
-export PATH=$SPARK_HOME/bin:$PATH
-# Spark End
-
-# Java Start
-jdk() {
-  if [ $# -eq 0 ]; then
-    /usr/libexec/java_home -V
-  else
-    version=$1
-    export JAVA_HOME=$(/usr/libexec/java_home -v"$version")
-    java -version
-  fi
-}
-
-jdk 1.8 &> /dev/null
-# Java End
-
-
-# Terraform Start
-# export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
-export PATH="/usr/local/opt/terraform@0.12/bin:$PATH"
-# Terraform End
-
-
-# LifeOmic Laptop END
-
 #source "$HOME/.zsh-nvm/zsh-nvm.plugin.zsh"
 #antigen use oh-my-zsh
 #antigen bundle lukechilds/zsh-nvm
