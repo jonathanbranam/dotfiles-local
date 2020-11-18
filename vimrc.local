@@ -61,3 +61,8 @@ let g:NERDTreeIgnore = ['^node_modules$']
 " nnoremap <C-S-TAB> :MBEbb<CR>
 " nnoremap <Leader>l :MBEbf<CR>
 " nnoremap <Leader>h :MBEbb<CR>
+
+" Branch-local config
+if filereadable($HOME . "/.vimrc.branch.local")
+  source ~/.vimrc.branch.local
+endif
