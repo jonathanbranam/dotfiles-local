@@ -1,0 +1,31 @@
+# define in zshenv to be available for scripts
+svar_path="$HOME/.local/svar"
+if [[ ! -d "$svar_path" ]]; then
+  mkdir "$svar_path"
+fi
+svar() {
+  local var_name="$1"
+  local svar_filename="$svar_path/$var_name"
+
+  # if the svar doesn't exist then don't return anything
+  # this is consistent with env var expansion
+  if [[ -f "$svar_filename" ]]; then
+    cat "$svar_filename"
+  fi
+}
+
+setsvar() {
+  local var_name="$1"
+  local var_value="$2"
+  local svar_filename="$svar_path/$var_name"
+  echo "$var_value" > "$svar_filename"
+}
+
+clearsvar() {
+  local var_name="$1"
+  local var_value="$2"
+  local svar_filename="$svar_path/$var_name"
+  if [[ -f "$svar_filename" ]]; then
+    rm "$svar_filename"
+  fi
+}
