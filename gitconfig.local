@@ -4,4 +4,7 @@
   followTags = true
 [user]
   name = Jonathan Branam
-  email = jonathan.branam@lifeomic.com
+  email = jonathan.branam@gmail.com
+
+[includeIf "gitdif:~/work/repos"]
+  path = ~/work/repos/.gitconfig
