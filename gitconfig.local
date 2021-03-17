@@ -1,5 +1,7 @@
 [init]
   defaultBranch = master
+[push]
+  followTags = true
 [user]
   name = Jonathan Branam
   email = jonathan.branam@gmail.com
