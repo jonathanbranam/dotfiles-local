@@ -43,12 +43,13 @@ export PATH="/usr/local/opt/terraform@0.12/bin:$PATH"
 # Terraform END
 
 # LifeOmic AWS Access START
-# export AWS_SDK_LOAD_CONFIG=true
-source lifeomic-aws partition commercial
-LIFEOMIC_LOGIN_USERNAME=first.last
+export AWS_SDK_LOAD_CONFIG=true
+source lifeomic-aws partition commercial >& /dev/null
+LIFEOMIC_LOGIN_USERNAME=jonathan.branam
 LIFEOMIC_LOGIN_MFA=push
 export LIFEOMIC_LOGIN_USERNAME LIFEOMIC_LOGIN_MFA
 # LifeOmic AWS Access END
 
+export GPG_TTY="$(tty)"
 
 # LifeOmic Laptop END
