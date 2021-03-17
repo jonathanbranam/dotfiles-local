@@ -1,0 +1,82 @@
+{
+  "title": "Command to Control in Appstream",
+  "rules": [
+    {
+      "description": "Map Command to Control in Appstream",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "left_gui"
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "org\\.epichrome\\.eng\\.AppStream"
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "right_gui"
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "org\\.epichrome\\.eng\\.AppStream"
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "right_control"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "right_control"
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "org\\.epichrome\\.eng\\.AppStream"
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "right_gui"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
