@@ -6,5 +6,5 @@
   name = Jonathan Branam
   email = jonathan.branam@gmail.com
 
-[includeIf "gitdif:~/work/repos"]
+[includeIf "gitdir:~/work/repos/"]
   path = ~/work/repos/.gitconfig
