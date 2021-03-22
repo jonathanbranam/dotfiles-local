@@ -2,7 +2,7 @@
   "title": "Command to Control in Appstream",
   "rules": [
     {
-      "description": "Map Command to Control in Appstream",
+      "description": "Map Command to Control in Appstream v2",
       "manipulators": [
         {
           "type": "basic",
@@ -25,6 +25,30 @@
           "to": [
             {
               "key_code": "left_control"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            },
+            "key_code": "left_control"
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "org\\.epichrome\\.eng\\.AppStream"
+              ]
+            }
+          ],
+          "to": [
+            {
+              "key_code": "left_gui"
             }
           ]
         },
