@@ -50,6 +50,13 @@ LIFEOMIC_LOGIN_MFA=push
 export LIFEOMIC_LOGIN_USERNAME LIFEOMIC_LOGIN_MFA
 # LifeOmic AWS Access END
 
+# React Native Setup START
+export PATH="$HOME/.rbenv/shims:$PATH"
+export ANDROID_HOME=/usr/local/opt/android-sdk
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+# React Native Setup END
+
+# GPG Setup
 export GPG_TTY="$(tty)"
 
 # LifeOmic Laptop END
