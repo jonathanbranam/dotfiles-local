@@ -61,3 +61,10 @@ let g:NERDTreeIgnore = ['^node_modules$']
 " nnoremap <C-S-TAB> :MBEbb<CR>
 " nnoremap <Leader>l :MBEbf<CR>
 " nnoremap <Leader>h :MBEbb<CR>
+
+" copy relative filepath to system clipboard
+nnoremap <leader>cf :let @+=expand("%")<CR>
+" copy absolute filepath to system clipboard
+nnoremap <leader>cF :let @+=expand("%:p")<CR>
+" copy filename
+nnoremap <leader>ct :let @+=expand("%:t")<CR>
