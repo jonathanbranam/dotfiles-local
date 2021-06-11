@@ -63,8 +63,12 @@ let g:NERDTreeIgnore = ['^node_modules$']
 " nnoremap <Leader>h :MBEbb<CR>
 
 " copy relative filepath to system clipboard
-nnoremap <leader>cf :let @+=expand("%")<CR>
+nnoremap <leader>cf :let @+=fnamemodify(getcwd(), ":t") . "/" . expand("%")<CR>
+" copy filepath with line number to system clipboard
+nnoremap <leader>cl :let @+=fnamemodify(getcwd(), ":t") . "/" . expand("%") . ":" . line(".")<CR>
 " copy absolute filepath to system clipboard
 nnoremap <leader>cF :let @+=expand("%:p")<CR>
 " copy filename
 nnoremap <leader>ct :let @+=expand("%:t")<CR>
+" copy github path to system clipboard
+nnoremap <leader>cg :let @+="https://github.com/lifeomic/" . fnamemodify(getcwd(), ":t") . "/blob/master/" . expand("%") . "#L" . line(".")<CR>

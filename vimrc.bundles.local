@@ -33,6 +33,9 @@ Plug 'kana/vim-arpeggio'
 " Try this one first, has command sending to tmux
 Plug 'jebaum/vim-tmuxify'
 
+" open file to line number with filename:43
+Plug 'wsdjeg/vim-fetch'
+
 " Python plugins
 Plug 'nvie/vim-flake8'
 
