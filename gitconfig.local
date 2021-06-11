@@ -5,3 +5,5 @@
 [user]
   name = Jonathan Branam
   email = jonathan.branam@gmail.com
+[core]
+  excludesfile = /Users/jbranam/.gitignore
