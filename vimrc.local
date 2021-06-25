@@ -63,7 +63,7 @@ let g:NERDTreeIgnore = ['^node_modules$']
 " nnoremap <Leader>h :MBEbb<CR>
 
 " copy relative filepath to system clipboard
-nnoremap <leader>cF :let @+=expand("%")<CR>
+nnoremap <leader>cf :let @+=expand("%")<CR>
 " copy relative filepath to system clipboard with cwd
 nnoremap <leader>cF :let @+=fnamemodify(getcwd(), ":t") . "/" . expand("%")<CR>
 " copy filepath with line number to system clipboard
