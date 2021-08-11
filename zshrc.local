@@ -8,7 +8,7 @@ setopt histignorespace
 #antigen use oh-my-zsh
 #antigen bundle lukechilds/zsh-nvm
 
-. $HOME/.asdf/asdf.sh
+# . $HOME/.asdf/asdf.sh
 
 #antigen bundle git
 
