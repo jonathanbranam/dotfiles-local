@@ -23,11 +23,12 @@ bind '"' split-window -c "#{pane_current_path}"
 bind % split-window -h -c "#{pane_current_path}"
 
 # Shift-Left/Right to move a window in the list
-# bind-key -r S-Left swap-window -d -t -1
-# bind-key -r S-Right swap-window -d -t +1
+bind-key -r S-Left swap-window -d -t -1
+bind-key -r S-Right swap-window -d -t +1
 # H/L to move a window in the list
-bind-key -r H swap-window -d -t -1
-bind-key -r L swap-window -d -t +1
+# These are bound to window resize
+# bind-key -r H swap-window -d -t -1
+# bind-key -r L swap-window -d -t +1
 
 # Enter a number to swap windows or -/+N to move left/right
 # This overwrites the move-window binding which seems useless
@@ -63,6 +64,28 @@ bind R source-file "$HOME/.tmux.conf"
 # Make incremental search the default
 bind-key -T copy-mode-vi / command-prompt -i -p "search down" "send -X search-forward-incremental \"%%%\""
 bind-key -T copy-mode-vi ? command-prompt -i -p "search up" "send -X search-backward-incremental \"%%%\""
+
+# START FROM: https://github.com/samoshkin/tmux-config/blob/master/tmux/tmux.conf
+# Copy selection on drag end event, but do not cancel copy mode and do not clear selection
+# clear select on subsequence mouse click
+bind -T copy-mode-vi MouseDragEnd1Pane \
+    send-keys -X copy-pipe "$yank"
+bind -T copy-mode-vi MouseDown1Pane select-pane \;\
+   send-keys -X clear-selection
+# bind -tvi-copy MouseDragEnd1Pane copy-selection -x
+
+# trigger copy mode by
+bind -n M-Up copy-mode
+
+# Scroll up/down by 1 line, half screen, whole screen
+bind -T copy-mode-vi M-Up              send-keys -X scroll-up
+bind -T copy-mode-vi M-Down            send-keys -X scroll-down
+bind -T copy-mode-vi M-PageUp          send-keys -X halfpage-up
+bind -T copy-mode-vi M-PageDown        send-keys -X halfpage-down
+bind -T copy-mode-vi PageDown          send-keys -X page-down
+bind -T copy-mode-vi PageUp            send-keys -X page-up
+
+# END FROM
 
 # List of plugins
 # set -g @plugin 'tmux-plugins/tpm'
