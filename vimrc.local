@@ -45,7 +45,7 @@ let g:utl_cfg_hdl_mt_generic = "Start! open '%u'"
 
 " Adapted from
 " https://vim.fandom.com/wiki/Search_for_current_word_in_multiple_files
-nnoremap gr :Ag '\b<cword>\b'<CR>
+nnoremap gr :Rg '\b<cword>\b'<CR>
 
 " Toggle word wrap on/off
 nnoremap <Leader>w :set formatoptions-=t<CR>
