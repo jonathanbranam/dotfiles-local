@@ -35,12 +35,21 @@ jdk 1.8 &> /dev/null
 
 
 # Terraform START
-# export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 export PATH="/usr/local/opt/terraform@0.12/bin:$PATH"
 # Terraform END
 
+# PDM START
+export PATH="/Users/jbranam/installs/pdm/bin:$PATH"
+
+if [ -n "$PYTHONPATH" ]; then
+    export PYTHONPATH='/Users/jbranam/installs/pdm/venv/lib/python3.8/site-packages/pdm/pep582':$PYTHONPATH
+else
+    export PYTHONPATH='/Users/jbranam/installs/pdm/venv/lib/python3.8/site-packages/pdm/pep582'
+fi
+# PDM END
+
 # LifeOmic AWS Access START
-export AWS_SDK_LOAD_CONFIG=true
+# export AWS_SDK_LOAD_CONFIG=true
 source <(lifeomic-aws partition commercial)
 LIFEOMIC_LOGIN_USERNAME=jonathan.branam
 LIFEOMIC_LOGIN_MFA=push
