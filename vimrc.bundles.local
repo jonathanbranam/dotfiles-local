@@ -51,7 +51,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 
-Plug 'jremmen/vim-ripgrep'
+Plug 'jonathanbranam/vim-ripgrep'
 
 " Working better with buffers
 " This was breaking my Ag search
