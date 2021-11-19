@@ -66,3 +66,5 @@ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export GPG_TTY="$(tty)"
 
 # LifeOmic Laptop END
+
+eval $(thefuck --alias)
