@@ -16,8 +16,8 @@
 # chmod +x pre-commit
 #
 # 8 lines before should always include the file names from the git diff
-if git diff --cached | grep -B 8 '^[+d].*NOCOMMIT'; then
+if git diff --cached -GNOCOMMIT; then
     echo
-    echo "Adding line containing NOCOMMIT"
+    echo "Aborting commit: diff includes NOCOMMIT"
     exit 1
 fi
