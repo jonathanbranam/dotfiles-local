@@ -16,7 +16,7 @@
 # chmod +x pre-commit
 #
 # 8 lines before should always include the file names from the git diff
-if git diff --cached -GNOCOMMIT; then
+if ! git diff --cached -GNOCOMMIT --exit-code; then
     echo
     echo "Aborting commit: diff includes NOCOMMIT"
     exit 1
