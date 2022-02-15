@@ -111,4 +111,7 @@ lifeomic-yarn() {
 alias get-dev-vpn-access="node $HOME/work/repos/vpn-console-access-opener/src/local/get-vpn-access.js --profile lifeomic-dev"
 alias get-infra-vpn-access="node $HOME/work/repos/vpn-console-access-opener/src/local/get-vpn-access.js --profile lifeomic-infra"
 
+export TEAM_CI_REVIEW=("-r" "anthonyroach" "-r" "mjtieman" "-r" "RyanRatcliff")
+alias pr='gh pr create -f -a @me ${TEAM_CI_REVIEW[@]}'
+
 # LifeOmic Laptop END
