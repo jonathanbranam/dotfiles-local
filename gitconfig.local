@@ -2,6 +2,10 @@
   defaultBranch = master
 [push]
   followTags = true
+[pull]
+  ff = only
+[alias]
+  fixup = -c sequence.editor=: rebase -i --autosquash
 [user]
   name = Jonathan Branam
   email = jonathan.branam@gmail.com

@@ -1,7 +1,7 @@
 # Setup fzf
 # ---------
 if [[ ! "$PATH" == */Users/jbranam/.fzf/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/Users/jbranam/.fzf/bin"
+  PATH="${PATH:+${PATH}:}/Users/jbranam/.fzf/bin"
 fi
 
 # Auto-completion
