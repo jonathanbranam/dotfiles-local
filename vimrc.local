@@ -2,6 +2,10 @@ set hlsearch
 set ignorecase
 set smartcase
 
+if &history < 1000
+  set history=1000
+endif
+
 " <LocalLeader>
 let maplocalleader = ","
 
@@ -14,6 +18,9 @@ colo seoul256
 
 " CtrlP: ignore elixir deps folder
 set wildignore+=*/deps/*
+
+" Ale
+let g:ale_fixers = {'python': ['isort']}
 
 " I like to use the mouse to scroll!
 set mouse=a
@@ -85,3 +92,62 @@ nnoremap <leader>cg :let @+="https://github.com/lifeomic/" . fnamemodify(getcwd(
 " Lookup file in NERDTree
 nnoremap <leader>nt :NERDTreeToggle<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
+
+" a ab( abc
+
+" Macros and tools to converts from ava to jest
+" I'm not sure where to put these or how to organize but I want to save them
+" somehow
+" NOTES:
+" wb - go to beginning of current word
+" <space>b - go to beginning of current word
+let @c = '/expect(.*\.callCount).toBe(\d*)/\.callCount)dt)f.lct(toBeCalledTimes€ýa'
+let @a = '0/expect(.*\.called)\.toBe(true);/\.called).toBe(trueC).toHaveBeenCalled();'
+let @n = '0/expect(.*\.notCalled).toBe(true)/\.notCalledC).not.toHaveBeenCalled();€ýa'
+let @f = '0/expect(\w*\.called).toBe(false);$/\.called)C).not.toHaveBeenCalled();€ýa'
+let @g = '0/\.getCall(\d*)cf(.mock.calls[f)r]'
+let @e = 'wbiwhen(ea)'
+let @p = '/await new promise(resolve =>.*, {}, (error) => {cf expect(€ýaf(a(€ýaf i, reject)€ýa/errorf)i, result€ýaAif (error) {reject(error);} else {resolve(result);})).resolves(''success'');€ýa/expect(error).tobe(null)dd/resolve(true);ddddkV?resolves(''success''j<€ýa'
+
+" TODO: move these into vim commands.org
+" https://learnvim.irian.to/basics/search_and_substitute
+" .getCall(n).args[m] => .mock.calls[n][m]
+" :%s/\.getCall(\(.*\))\.args\[\(.*\)\]/.mock.calls[\1][\2]/g
+"
+" expect(blah.called).toBeTruthy()
+" expect(blah.called).toBe(true) => expect(blah).toHaveBeenCalled()
+" :%s/\.called).tobe\(truthy()\|(true)\)/).toHaveBeenCalled()/g
+"
+" expect(blah.called).toBe(false) => expect(blah).not.toHaveBeenCalled()
+" expect(blah.notCalled).toBe(false) => expect(blah).toHaveBeenCalled()
+"
+" expect(blah.notCalled).toBeTruthy()
+" expect(blah.notCalled).toBe(true) => expect(blah).toHaveBeenCalled()
+" :%s/\.notcalled).tobe\(truthy()\|(true)\)/).not.toHaveBeenCalled()/g
+"
+" This works with jest-when:
+" mock.withArgs(a, b, c).returns(x, y, z) =>
+" mock.calledWith(a, b, c).mockReturnValue(x, y, z)
+" Also need to surround mock with when(mock)
+" :%s/\.withArgs(\(.*\))\.returns(\(.*\))/.calledWith(\1).mockReturnValue(\2)/
+"
+" This works assuming onCalls are in order. It adds async which may or may not
+" be necessary
+" :%s/\.onCall(\(.*\))\.callsFake(/.mockImplementationOnce(async/gc
+" :%s/expect(\(.*\)\.callCount)\.toBe(\(\d*\));/expect(\1).toHaveBeenCalledTimes(\2);/g
+"
+" t.context.sandbox.stub(method, name) => jest.spyOn(method, name)
+" :%s/t\.context\.sandbox\.stub(\(.*\), \(.*\))/jest.spyOn(\1, \2)/g
+"
+" When changing from stubbing prototypes to a class mock
+" :h sub-replace-special
+" :%s/Job.prototype.\(.*\)/mockJob\u\1/gc
+"
+" \zs and \ze start and end of match
+"
+" Build a file list in args
+" :args *.js
+" " do something in all files
+" :argdo substitution
+" " save all the files
+" :argdo update 

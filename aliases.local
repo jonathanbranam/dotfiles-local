@@ -101,3 +101,38 @@ display() {
   fi
 
 }
+
+# LifeOmic Laptop START
+
+lifeomic-yarn() {
+  ls "$(yarn global bin)" | grep lifeomic-
+}
+
+alias get-dev-vpn-access="node $HOME/work/repos/vpn-console-access-opener/src/local/get-vpn-access.js --profile lifeomic-dev"
+alias get-infra-vpn-access="node $HOME/work/repos/vpn-console-access-opener/src/local/get-vpn-access.js --profile lifeomic-infra"
+
+export TEAM_CI_REVIEW=("-r" "RyanRatcliff" "-r" "simons5593" "-r" "atolivero" "-r" "samirhsnv")
+alias prr='gh pr create -f -a @me ${TEAM_CI_REVIEW[@]}'
+alias pr='gh pr create -f -a @me'
+
+conda_setup() {
+  echo Initializing conda
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$('/Users/jbranam/.pyenv/versions/miniconda3-4.7.12/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "/Users/jbranam/.pyenv/versions/miniconda3-4.7.12/etc/profile.d/conda.sh" ]; then
+          . "/Users/jbranam/.pyenv/versions/miniconda3-4.7.12/etc/profile.d/conda.sh"
+      else
+          export PATH="/Users/jbranam/.pyenv/versions/miniconda3-4.7.12/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
+  # <<< conda initialize <<<
+}
+
+
+
+# LifeOmic Laptop END
