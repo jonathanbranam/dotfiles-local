@@ -14,6 +14,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # NVM END
 
+# ripgrep START
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+# ripgrep END
+
 # Spark START
 export SPARK_HOME=/opt/spark
 export PATH=$SPARK_HOME/bin:$PATH
@@ -39,13 +43,12 @@ export PATH="/usr/local/opt/terraform@0.12/bin:$PATH"
 # Terraform END
 
 # PDM START
-export PATH="/Users/jbranam/installs/pdm/bin:$PATH"
-
-if [ -n "$PYTHONPATH" ]; then
-    export PYTHONPATH='/Users/jbranam/installs/pdm/venv/lib/python3.8/site-packages/pdm/pep582':$PYTHONPATH
-else
-    export PYTHONPATH='/Users/jbranam/installs/pdm/venv/lib/python3.8/site-packages/pdm/pep582'
-fi
+# pdm v2
+# if [ -n "$PYTHONPATH" ]; then
+#     export PYTHONPATH='/Users/jbranam/Library/Application Support/pdm/venv/lib/python3.8/site-packages/pdm/pep582':$PYTHONPATH
+# else
+#     export PYTHONPATH='/Users/jbranam/Library/Application Support/pdm/venv/lib/python3.8/site-packages/pdm/pep582'
+# fi
 # PDM END
 
 # LifeOmic AWS Access START
@@ -68,3 +71,4 @@ export GPG_TTY="$(tty)"
 # LifeOmic Laptop END
 
 eval $(thefuck --alias)
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
