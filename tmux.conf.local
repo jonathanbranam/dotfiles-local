@@ -65,11 +65,6 @@ bind R source-file "$HOME/.tmux.conf"
 bind-key -T copy-mode-vi / command-prompt -i -p "search down" "send -X search-forward-incremental \"%%%\""
 bind-key -T copy-mode-vi ? command-prompt -i -p "search up" "send -X search-backward-incremental \"%%%\""
 
-# TODO find a better solution
-bind-key C-w send-keys WELL-1560
-bind-key C-e send-keys WELL-1560-birthday-notif
-
-
 # START FROM: https://github.com/samoshkin/tmux-config/blob/master/tmux/tmux.conf
 # Copy selection on drag end event, but do not cancel copy mode and do not clear selection
 # clear select on subsequence mouse click

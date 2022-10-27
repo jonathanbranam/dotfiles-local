@@ -1,4 +1,4 @@
-# LifeOmic Laptop START
+# Dalek Laptop START
 
 # Local scripts that shouldn't be in github
 export PATH="$HOME/.local/bin:$PATH"
@@ -9,9 +9,9 @@ export PATH="${PYENV_ROOT}/shims:${PATH}"
 # PyEnv END
 
 # NVM START
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # NVM END
 
 # ripgrep START
@@ -19,28 +19,24 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # ripgrep END
 
 # Spark START
-export SPARK_HOME=/opt/spark
-export PATH=$SPARK_HOME/bin:$PATH
+# export SPARK_HOME=/opt/spark
+# export PATH=$SPARK_HOME/bin:$PATH
 # Spark END
 
 # Java START
-jdk() {
-  if [ $# -eq 0 ]; then
-    /usr/libexec/java_home -V
-  else
-    version=$1
-    export JAVA_HOME=$(/usr/libexec/java_home -v"$version")
-    java -version
-  fi
-}
-
-jdk 1.8 &> /dev/null
+# jdk() {
+#   if [ $# -eq 0 ]; then
+#     /usr/libexec/java_home -V
+#   else
+#     version=$1
+#     export JAVA_HOME=$(/usr/libexec/java_home -v"$version")
+#     java -version
+#   fi
+# }
+# 
+# jdk 1.8 &> /dev/null
 # Java END
 
-
-# Terraform START
-export PATH="/usr/local/opt/terraform@0.12/bin:$PATH"
-# Terraform END
 
 # PDM START
 # pdm v2
@@ -51,24 +47,10 @@ export PATH="/usr/local/opt/terraform@0.12/bin:$PATH"
 # fi
 # PDM END
 
-# LifeOmic AWS Access START
-# export AWS_SDK_LOAD_CONFIG=true
-source <(lifeomic-aws partition commercial)
-LIFEOMIC_LOGIN_USERNAME=jonathan.branam
-LIFEOMIC_LOGIN_MFA=push
-export LIFEOMIC_LOGIN_USERNAME LIFEOMIC_LOGIN_MFA
-# LifeOmic AWS Access END
-
-# React Native Setup START
-export PATH="$HOME/.rbenv/shims:$PATH"
-export ANDROID_HOME=/usr/local/opt/android-sdk
-export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-# React Native Setup END
-
 # GPG Setup
 export GPG_TTY="$(tty)"
 
-# LifeOmic Laptop END
+# Dalek Laptop END
 
 eval $(thefuck --alias)
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+# export PATH="/usr/local/opt/mysql-client/bin:$PATH"

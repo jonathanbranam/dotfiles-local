@@ -11,8 +11,6 @@
   email = jonathan.branam@gmail.com
 [core]
   excludesfile = /Users/jbranam/.gitignore
-[includeIf "gitdir:~/work/repos/"]
-  path = ~/work/repos/.gitconfig
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
