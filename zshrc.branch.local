@@ -8,6 +8,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="${PYENV_ROOT}/shims:${PATH}"
 # PyEnv END
 
+# Poetry START
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
+# Poetry END
+
 # NVM START
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
