@@ -14,7 +14,18 @@ setopt histignorespace
 
 shuf() { perl -MList::Util=shuffle -e 'print shuffle(<>);' "$@"; }
 
+# FZF START
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# FZF END
+
+# NVM START
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# NVM END
 
 # Branch local config
 [[ -f ~/.zshrc.branch.local ]] && source ~/.zshrc.branch.local

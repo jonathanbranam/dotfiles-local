@@ -51,26 +51,26 @@ display() {
   fi
   echo Config: $config Options: $options
 
-  if [[ $config = "1" ]]
+  if [[ $config == "1" ]]
   then
-    if [[ $options = "default" ]]
+    if [[ $options == "default" ]]
     then
       # Not entirely sure about this, need to double check
       displayplacer "id:99DD39EE-2F20-8836-4656-8DD369F3C2E4 res:1792x1120 color_depth:4 scaling:on origin:(0,0) degree:0"
-    elif [[ $options = "unscaled" ]]
+    elif [[ $options == "unscaled" ]]
     then
       # Not entirely sure about this, need to double check
       displayplacer "id:99DD39EE-2F20-8836-4656-8DD369F3C2E4 res:1792x1120 color_depth:4 scaling:on origin:(0,0) degree:0"
     fi
-  elif [[ $config = "colab" ]]
+  elif [[ $config == "colab" ]]
   then
-    if [[ $options = "default" ]]
+    if [[ $options == "default" ]]
     then
       echo colab default
       displayplacer "id:CC25F679-A770-2BA2-53D6-61781B7FFDB8 res:3360x1890 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:99DD39EE-2F20-8836-4656-8DD369F3C2E4 res:1792x1120 hz:59 color_depth:4 scaling:on origin:(-1792,0) degree:0"
       # MetaCX laptop:
       # displayplacer "id:577AC458-8531-59E0-E05B-35BB9AE56453 res:1680x1050 color_depth:8 scaling:on origin:(0,0) degree:0" "id:CC25F679-A770-2BA2-53D6-61781B7FFDB8 res:3360x1890 hz:60 color_depth:8 scaling:on origin:(-3360,-72) degree:0"
-    elif [[ $options = "unscaled" ]]
+    elif [[ $options == "unscaled" ]]
     then
       echo colab unscaled
       displayplacer "id:CC25F679-A770-2BA2-53D6-61781B7FFDB8 res:1920x1080 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:99DD39EE-2F20-8836-4656-8DD369F3C2E4 res:1792x1120 hz:59 color_depth:4 scaling:on origin:(-1792,0) degree:0"
@@ -79,15 +79,15 @@ display() {
     else
       echo Unknown config option $options
     fi
-  elif [[ $config = "home" ]]
+  elif [[ $config == "home" ]]
   then
-    if [[ $options = "default" ]]
+    if [[ $options == "default" ]]
     then
       echo home default
       displayplacer "id:CC25F679-A770-2BA2-53D6-61781B7FFDB8 res:3360x1890 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:99DD39EE-2F20-8836-4656-8DD369F3C2E4 res:1792x1120 hz:59 color_depth:4 scaling:on origin:(-1792,0) degree:0"
       # MetaCX laptop:
       # displayplacer "id:577AC458-8531-59E0-E05B-35BB9AE56453 res:1680x1050 color_depth:8 scaling:on origin:(0,0) degree:0" "id:CC25F679-A770-2BA2-53D6-61781B7FFDB8 res:3360x1890 hz:60 color_depth:8 scaling:on origin:(1680,-840) degree:0"
-    elif [[ $options = "unscaled" ]]
+    elif [[ $options == "unscaled" ]]
     then
       echo home unscaled
       displayplacer "id:CC25F679-A770-2BA2-53D6-61781B7FFDB8 res:1920x1080 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:99DD39EE-2F20-8836-4656-8DD369F3C2E4 res:1792x1120 hz:59 color_depth:4 scaling:on origin:(-1792,0) degree:0"
@@ -104,29 +104,21 @@ display() {
 
 # LifeOmic Laptop START
 
-lifeomic-yarn() {
-  ls "$(yarn global bin)" | grep lifeomic-
-}
-
-alias get-dev-vpn-access="node $HOME/work/repos/vpn-console-access-opener/src/local/get-vpn-access.js --profile lifeomic-dev"
-alias get-infra-vpn-access="node $HOME/work/repos/vpn-console-access-opener/src/local/get-vpn-access.js --profile lifeomic-infra"
-
 export TEAM_CI_REVIEW=("-r" "RyanRatcliff" "-r" "simons5593" "-r" "atolivero" "-r" "samirhsnv")
 alias prr='gh pr create -f -a @me ${TEAM_CI_REVIEW[@]}'
 alias pr='gh pr create -f -a @me'
 
 conda_setup() {
-  echo Initializing conda
   # >>> conda initialize >>>
   # !! Contents within this block are managed by 'conda init' !!
-  __conda_setup="$('/Users/jbranam/.pyenv/versions/miniconda3-4.7.12/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+  __conda_setup="$('/Users/jbranam/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
   if [ $? -eq 0 ]; then
       eval "$__conda_setup"
   else
-      if [ -f "/Users/jbranam/.pyenv/versions/miniconda3-4.7.12/etc/profile.d/conda.sh" ]; then
-          . "/Users/jbranam/.pyenv/versions/miniconda3-4.7.12/etc/profile.d/conda.sh"
+      if [ -f "/Users/jbranam/miniconda3/etc/profile.d/conda.sh" ]; then
+          . "/Users/jbranam/miniconda3/etc/profile.d/conda.sh"
       else
-          export PATH="/Users/jbranam/.pyenv/versions/miniconda3-4.7.12/bin:$PATH"
+          export PATH="/Users/jbranam/miniconda3/bin:$PATH"
       fi
   fi
   unset __conda_setup

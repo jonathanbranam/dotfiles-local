@@ -6,6 +6,7 @@ if &history < 1000
   set history=1000
 endif
 
+nnoremap <SPACE> <Nop>
 " <LocalLeader>
 let maplocalleader = ","
 
@@ -13,8 +14,13 @@ let maplocalleader = ","
 let g:ctrlp_use_caching = 1
 
 " https://github.com/junegunn/seoul256.vim
-let g:seoul256_background = 233
-colo seoul256
+" let g:seoul256_background = 233
+" colorscheme seoul256
+set background=dark
+" colorscheme onehalfdark
+colorscheme habamax
+" set background=light
+" colorscheme catppuccin-latte
 
 " CtrlP: ignore elixir deps folder
 set wildignore+=*/deps/*
@@ -93,6 +99,15 @@ nnoremap <leader>cg :let @+="https://github.com/lifeomic/" . fnamemodify(getcwd(
 nnoremap <leader>nt :NERDTreeToggle<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
 
+" yank / put from system clipboard
+nnoremap <leader>yl ^"+y$
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+
+
+
 " a ab( abc
 
 " Macros and tools to converts from ava to jest
@@ -101,13 +116,13 @@ nnoremap <leader>nf :NERDTreeFind<CR>
 " NOTES:
 " wb - go to beginning of current word
 " <space>b - go to beginning of current word
-let @c = '/expect(.*\.callCount).toBe(\d*)/\.callCount)dt)f.lct(toBeCalledTimes€ýa'
-let @a = '0/expect(.*\.called)\.toBe(true);/\.called).toBe(trueC).toHaveBeenCalled();'
-let @n = '0/expect(.*\.notCalled).toBe(true)/\.notCalledC).not.toHaveBeenCalled();€ýa'
-let @f = '0/expect(\w*\.called).toBe(false);$/\.called)C).not.toHaveBeenCalled();€ýa'
-let @g = '0/\.getCall(\d*)cf(.mock.calls[f)r]'
-let @e = 'wbiwhen(ea)'
-let @p = '/await new promise(resolve =>.*, {}, (error) => {cf expect(€ýaf(a(€ýaf i, reject)€ýa/errorf)i, result€ýaAif (error) {reject(error);} else {resolve(result);})).resolves(''success'');€ýa/expect(error).tobe(null)dd/resolve(true);ddddkV?resolves(''success''j<€ýa'
+" let @c = '/expect(.*\.callCount).toBe(\d*)\/\.callCount)\dt)f.lct(toBeCalledTimes€ýa'
+" let @a = '0/expect(.*\.called)\.toBe(true);\/\.called).toBe(true\C).toHaveBeenCalled();'
+" let @n = '0/expect(.*\.notCalled).toBe(true)\/\.notCalled\C).not.toHaveBeenCalled();€ýa'
+" let @f = '0/expect(\w*\.called).toBe(false);$\/\.called)\C).not.toHaveBeenCalled();€ýa'
+" let @g = '0/\.getCall(\d*)\cf(.mock.calls[f)r]'
+" let @e = 'wbiwhen(ea)'
+" let @p = '/await new promise(resolve =>.*, {}, (error) => {\cf expect(€ýaf(a(€ýaf i, reject)€ýa/error\f)i, result€ýaA\if (error) {\reject(error);\} else {\resolve(result);\})).resolves(''success'');€ýa/expect(error).tobe(null)\dd/resolve(true);\ddddkV?resolves(''success''\j<€ýa'
 
 " TODO: move these into vim commands.org
 " https://learnvim.irian.to/basics/search_and_substitute

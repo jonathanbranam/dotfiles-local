@@ -51,7 +51,24 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 
+" Easy align for table alignment (and other) 2023-10-19
+Plug 'junegunn/vim-easy-align'
+
 Plug 'jonathanbranam/vim-ripgrep'
+
+" themes
+Plug 'morhetz/gruvbox'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'mofiqul/vscode.nvim'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'nlknguyen/papercolor-theme'
+Plug 'gosukiwi/vim-atom-dark'
+Plug 'sainnhe/sonokai'
+Plug 'h3xx/vim-late_evening'
+Plug 'sonph/onehalf'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'macguirerintoul/night_owl_light.vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 " Working better with buffers
 " This was breaking my Ag search
