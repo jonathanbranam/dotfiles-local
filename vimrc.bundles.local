@@ -3,6 +3,7 @@ Plug 'digitaltoad/vim-pug'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/vader.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-obsession'
 " Includes programming case conversions but hard to use
@@ -73,3 +74,11 @@ Plug 'sonph/onehalf', { 'rtp': 'vim' }
 " Working better with buffers
 " This was breaking my Ag search
 " Plug 'fholgado/minibufexpl.vim'
+
+" 2023-12-02
+Plug 'psf/black', { 'branch': 'stable' }
+Plug 'gabrielelana/vim-markdown'
+
+" 2023-12-08
+Plug 'dkarter/bullets.vim'
+

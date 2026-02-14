@@ -15,6 +15,12 @@ bind-key C-s send-prefix
 # bind-key C-b send-prefix
 # bind-key C-a send-prefix -2
 
+# Restoring some clear-screen functionality
+# 2023-12-16
+# This isn't working
+# bind-key -n M-C-l send-keys C-l
+# bind M-C-l send-keys C-l
+
 set-option -g set-titles on
 set-option -g set-titles-string "#{session_name}"
 

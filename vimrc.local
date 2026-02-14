@@ -10,17 +10,42 @@ nnoremap <SPACE> <Nop>
 " <LocalLeader>
 let maplocalleader = ","
 
+set hidden
+
 " ag is NOT fast enough that CtrlP doesn't need to cache
 let g:ctrlp_use_caching = 1
 
-" https://github.com/junegunn/seoul256.vim
-" let g:seoul256_background = 233
-" colorscheme seoul256
-set background=dark
-" colorscheme onehalfdark
-colorscheme habamax
-" set background=light
-" colorscheme catppuccin-latte
+function! g:UpdateColorScheme()
+  let dark_mode = trim(system("osascript -e 'tell app \"System Events\" to tell appearance preferences to return dark mode'"))
+
+  if dark_mode == "true"
+    " https://github.com/junegunn/seoul256.vim
+    " let g:seoul256_background = 233
+    " colorscheme seoul256
+    set background=dark
+    " colorscheme onehalfdark
+    colorscheme habamax
+  else
+    set background=light
+    colorscheme catppuccin-latte
+  endif
+
+endfunction
+
+call g:UpdateColorScheme()
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('rg')
+  " Use Ag over Grep
+  set grepprg=rg\ --nogroup\ --nocolor
+
+  " Use ag in fzf for listing files. Lightning fast and respects .gitignore
+  " let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor --hidden -g ""'
+  let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+
+
+  nnoremap \ :Rg<SPACE>
+endif
 
 " CtrlP: ignore elixir deps folder
 set wildignore+=*/deps/*
@@ -106,7 +131,19 @@ vnoremap <leader>y "+y
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 
+" meta-notes plugin development
+set runtimepath+=/Volumes/Data/work/meta-notes
 
+" vim-easy-align
+" 2023-10-19
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" Align a markdown table
+nmap gt gaip*\|
 
 " a ab( abc
 
