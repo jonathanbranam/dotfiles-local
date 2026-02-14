@@ -67,9 +67,13 @@ Plug 'gosukiwi/vim-atom-dark'
 Plug 'sainnhe/sonokai'
 Plug 'h3xx/vim-late_evening'
 Plug 'sonph/onehalf'
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'macguirerintoul/night_owl_light.vim'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
+
+" replace pbrisbin/vim-mkdir
+UnPlug 'pbrisbin/vim-mkdir'
+Plug 'benizi/vim-automkdir'
 
 " Working better with buffers
 " This was breaking my Ag search
