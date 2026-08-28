@@ -16,3 +16,5 @@ rerun.txt
 tmp/**/*
 /tags
 Session.vim
+
+**/.claude/settings.local.json
