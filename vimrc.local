@@ -8,7 +8,8 @@ endif
 
 nnoremap <SPACE> <Nop>
 " <LocalLeader>
-let maplocalleader = ","
+" let maplocalleader = ","
+let maplocalleader = "g"
 
 set hidden
 
@@ -141,13 +142,13 @@ set runtimepath+=/Volumes/Data/work/meta-notes
 " vim-easy-align
 " 2023-10-19
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
+xmap <localleader>a <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+nmap <localleader>a <Plug>(EasyAlign)
 
 " Align a markdown table
-nmap gt gaip*\|
+nmap <localleader>\| gaip*\|
 
 " a ab( abc
 
