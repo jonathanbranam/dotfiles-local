@@ -20,6 +20,10 @@ shuf() { perl -MList::Util=shuffle -e 'print shuffle(<>);' "$@"; }
 
 # FZF END
 
+# beads_rust START
+export RUST_LOG=warn
+# beads_rust END
+
 # NVM START
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
