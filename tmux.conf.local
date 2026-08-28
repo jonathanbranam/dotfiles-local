@@ -24,6 +24,11 @@ bind-key C-s send-prefix
 set-option -g set-titles on
 set-option -g set-titles-string "#{session_name}"
 
+# Added 2026-08-15 for Claude and Pi
+set -g extended-keys on
+# Keep sending Escape for Ctrl-[ b/c Claude doesn't recognize it
+bind-key -n 'C-[' send-keys Escape
+
 # Split windows using the current directory
 bind '"' split-window -c "#{pane_current_path}"
 bind % split-window -h -c "#{pane_current_path}"
