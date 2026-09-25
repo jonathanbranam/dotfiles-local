@@ -41,6 +41,20 @@ screenshots() {
   defaults write com.apple.screencapture location "$1"
 }
 
+# Added 2026-09-25 to grep `ps aux` while keeping the column header line
+psgrep() {
+  if [[ -z $1 ]]; then
+    echo "usage: psgrep <pattern>" >&2
+    return 1
+  fi
+
+  local pattern="$1"
+  local output
+  output=$(ps aux)
+  echo "$output" | head -1
+  echo "$output" | tail -n +2 | grep -- "$pattern"
+}
+
 # display 1 default
 
 display() {
