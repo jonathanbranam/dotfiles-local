@@ -57,7 +57,8 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # rust cargo START
 
-export PATH="$HOME/.cargo/bin:$PATH"
+# rustup-managed; env file prepends ~/.cargo/bin only if missing
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # rust cargo END
 
