@@ -137,7 +137,8 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 
 " meta-notes plugin development
-set runtimepath+=/Volumes/Data/work/meta-notes
+set runtimepath+=~/work/meta-notes-workspace/meta-notes
+set runtimepath+=~/work/meta-notes-workspace/meta-notes/after
 
 " vim-easy-align
 " 2023-10-19
