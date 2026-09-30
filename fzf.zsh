@@ -1,8 +1,8 @@
 # Setup fzf
 # ---------
-# NUC (Linux), 2026-09-30: fzf lives in ~/.fzf, not /Users/jbranam/.fzf.
-# OS split (dl-c5fc): move to the Linux config (zsh/os/Linux.zsh).
-if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
+# Changed 2026-09-30: fzf lives in ~/.fzf (was hardcoded /Users/jbranam/.fzf);
+# guarded on existence so it works on any OS
+if [[ -d "$HOME/.fzf/bin" && ! "$PATH" == *$HOME/.fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
 fi
 

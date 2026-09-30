@@ -31,11 +31,32 @@ export NVM_DIR="$HOME/.nvm"
 
 # NVM END
 
-# Branch local config
-[[ -f ~/.zshrc.branch.local ]] && source ~/.zshrc.branch.local
+# Moved 2026-09-30 from zshrc.branch.local (dl-c5fc): common config, each guarded on existence
 
-# NUC (Linux). OS split (dl-c5fc): move to the Linux config (zsh/os/Linux.zsh),
-# or keep one guarded copy in common config if the Mac needs it too.
+# Local scripts that shouldn't be in github
+[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+
+# pyenv
+if [[ -d "$HOME/.pyenv" ]]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="${PYENV_ROOT}/shims:${PATH}"
+fi
+
+# Poetry completions
+if [[ -d "$HOME/.zfunc" ]]; then
+  fpath+=~/.zfunc
+  autoload -Uz compinit && compinit
+fi
+
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
 # Added 2026-09-29 for rust on linux NUC (moved from zshenv.local 2026-09-30:
-# thoughtbot's zshenv warns if zshenv.local edits PATH)
+# thoughtbot's zshenv warns if zshenv.local edits PATH). The single cargo load,
+# rustup-managed; env file prepends ~/.cargo/bin only if missing
 [[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
+
+export GPG_TTY="$(tty)"
+
+# Per-OS config (Darwin.zsh, Linux.zsh) under zsh/os/, deliberately not zsh/configs/
+# Added 2026-09-30 (dl-c5fc) to replace zshrc.branch.local, which loaded Mac paths everywhere
+[[ -f ~/.zsh/os/$(uname -s).zsh ]] && source ~/.zsh/os/$(uname -s).zsh

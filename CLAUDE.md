@@ -33,7 +33,11 @@ COPY_ALWAYS="git_template/HEAD"
 
 ## Layout
 
-- `zshrc.local`, `zshenv.local`, `zshrc.branch.local`, `aliases.local` — shell config appended to thoughtbot's zsh setup.
+- `zshrc.local`, `zshenv.local`, `aliases.local` — shell config appended to thoughtbot's zsh setup.
+- `zsh/os/Darwin.zsh`, `zsh/os/Linux.zsh` — per-OS zsh config, sourced at the end of `zshrc.local` by `uname -s`.
+  They live under `zsh/os/`, never `zsh/configs/` (thoughtbot sources everything there on every OS). Rule:
+  guard on existence first, OS second — put a setting in `zshrc.local` behind a `[[ -d/-f ... ]]` check when
+  that works anywhere; only genuinely OS-divergent things go in an OS file. No per-machine branches.
 - `vimrc.local`, `vimrc.bundles.local`, `vim/` — vim config and plugin bundles; `vim/after/` holds
   ftplugin/plugin overrides loaded after the base vim setup.
 - `tmux.conf.local`, `tmux/plugins/tpm` (git submodule) — tmux config and the Tmux Plugin Manager.
