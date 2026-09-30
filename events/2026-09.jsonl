@@ -1,2 +1,3 @@
 {"actor":"human","at":"2026-09-30T22:23:14.121Z","from":"","task":"dl-c5fc","to":"open"}
 {"actor":"external:orchestrator","at":"2026-09-30T22:23:33.542961268Z","from":"open","task":"dl-c5fc","to":"planned"}
+{"actor":"human","at":"2026-09-30T22:32:59.323806007Z","queue":"reprioritized"}
