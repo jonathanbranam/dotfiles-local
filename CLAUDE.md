@@ -56,3 +56,11 @@ COPY_ALWAYS="git_template/HEAD"
   manually edited.
 - No build/test tooling — changes are config files, verified by sourcing/reloading the relevant tool
   (`tmux source-file`, `:source $MYVIMRC`, `exec zsh`, etc.).
+
+<!-- bridle:managed:start -->
+This project's workflow rules, current task and role priming are rendered by
+bridle, not written here. Read the rule files (markdown, one per rule id)
+in `.bridle/rules/` and in the workflow checkout's `base/rules/` (`workflow`
+in `.bridle/config.toml`) at the start of a session — don't rely on this
+file for rule content. The orchestrator also runs `bridle prime orchestrator`.
+<!-- bridle:managed:end -->

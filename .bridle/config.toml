@@ -1,0 +1,44 @@
+# dotfiles-local on bridle: adopted 2026-09-30, working directly on main.
+# Reference: docs/design/agent-host/roles-and-config.md in the bridle repo.
+#
+# There's no `project` key: bridle names the project after the repo
+# directory ("dotfiles-local"). The workflow path comes from the machine's
+# ~/.bridle/config.toml. Base roles and rules only; no packs.
+packs = []
+
+[tasks]
+prefix = "dl"
+
+# All work merges into main.
+[branches]
+integration = "main"
+
+# No build or test tooling: changes are config files, checked by sourcing or
+# reloading the tool (CLAUDE.md, "Working in this repo"). No check command.
+
+# One worker at a time.
+[budget]
+max_workers = 1
+
+[roles.worker]
+model            = "sonnet"
+effort           = "medium"
+workdir          = "worktree"
+permission_mode  = "acceptEdits"
+allowed_tools    = ["Bash", "Read", "Edit", "Write", "Glob", "Grep"]
+# Only the manager pushes; a worker merges the local main into its branch.
+# rcup relinks $HOME, so it's the human's step.
+disallowed_tools = ["Bash(git push *)", "Bash(git checkout main*)", "Bash(git fetch *)", "Bash(git pull *)", "Bash(git merge origin*)", "Bash(rcup*)"]
+max_budget_usd   = 20.0
+
+[roles.manager]
+model             = "sonnet"
+workdir           = "repo"
+permission_mode   = "dontAsk"
+# Lands worker branches with `bridle land` and pushes main.
+allowed_tools     = ["Bash(bridle *)", "Bash(git log*)", "Bash(git diff*)", "Bash(git show*)", "Bash(git status*)", "Bash(git branch*)", "Bash(git merge-base *)", "Bash(git push origin main)", "Bash(git -C * status*)", "Read", "Glob", "Grep"]
+# No standing manager: the orchestrator starts one when there's work and
+# stops it when the project is idle.
+autostart         = false
+resume_on_restart = true
+max_budget_usd    = 20.0

@@ -1,0 +1,12 @@
+
+# bridle runtime files
+.bridle/*.db*
+.bridle/daemon.json
+.bridle/cache/
+
+# bridle sync output, regenerated from the workflow layers; never committed.
+# .claude/settings.json itself is committed.
+.claude/settings.local.json
+.claude/skills/bridle-*/
+.claude/agents/
+.claude/.bridle-sync-hooks.json
