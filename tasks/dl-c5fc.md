@@ -2,10 +2,12 @@
 id = "dl-c5fc"
 title = "Replace zshrc.branch.local with per-OS zsh config (zsh/os/), vim/tmux OS split"
 kind = "feature"
-state = "planned"
+state = "integrated"
 created_at = "2026-09-30T22:23:14.121Z"
-updated_at = "2026-09-30T22:33:54.155901037Z"
+updated_at = "2026-09-30T22:34:03.775333283Z"
 size = "M"
+branch = "bridle/ossplit"
+commit = "e8ec7acb84167393468acc91b28d8cbc95587e79"
 summary = """
 Replaced zshrc.branch.local with existence-guarded common config in zshrc.local (~/.local/bin, pyenv, poetry fpath/compinit only if ~/.zfunc exists, RIPGREP_CONFIG_PATH, one cargo env load, GPG_TTY) plus zsh/os/Darwin.zsh (UV_CACHE_DIR guarded on /Volumes/Data, JAVA_HOME, Android SDK, conda Caskroom) and a near-empty zsh/os/Linux.zsh; zshrc.local ends with the `uname -s` source line. Dead commented blocks dropped. fzf.zsh: ~/.fzf/bin guarded on -d (works on both OSes, so kept common rather than Linux.zsh). vimrc.local: has('mac') restores osascript light/dark (catppuccin-latte); else dark+habamax. tmux.conf.local has no Mac-only bits: unchanged. CLAUDE.md Layout updated. No CHANGELOG in repo. `zsh -n` passes on zshrc.local, fzf.zsh, both OS files. Not done: rcup, zfunc/_poetry (untouched).
 
@@ -47,3 +49,9 @@ The branch has the changes above in small, focused commits; `zsh -n` passes on e
 
 ### note · agent:ossplit · 2026-09-30T22:33:54.155Z
 done: zsh/os split, guarded common config, vim has('mac'), CLAUDE.md; zsh -n ok, main merged (already up to date); 7396cd8
+
+### note · agent:manager · 2026-09-30T22:34:02.967Z
+integrated: e8ec7acb84167393468acc91b28d8cbc95587e79 (branch bridle/ossplit)
+
+### note · agent:manager · 2026-09-30T22:34:03.775Z
+cleanup: removed agent ossplit, branch bridle/ossplit
