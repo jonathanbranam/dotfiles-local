@@ -4,8 +4,14 @@ title = "Replace zshrc.branch.local with per-OS zsh config (zsh/os/), vim/tmux O
 kind = "feature"
 state = "planned"
 created_at = "2026-09-30T22:23:14.121Z"
-updated_at = "2026-09-30T22:27:53.144196571Z"
+updated_at = "2026-09-30T22:33:54.155901037Z"
 size = "M"
+summary = """
+Replaced zshrc.branch.local with existence-guarded common config in zshrc.local (~/.local/bin, pyenv, poetry fpath/compinit only if ~/.zfunc exists, RIPGREP_CONFIG_PATH, one cargo env load, GPG_TTY) plus zsh/os/Darwin.zsh (UV_CACHE_DIR guarded on /Volumes/Data, JAVA_HOME, Android SDK, conda Caskroom) and a near-empty zsh/os/Linux.zsh; zshrc.local ends with the `uname -s` source line. Dead commented blocks dropped. fzf.zsh: ~/.fzf/bin guarded on -d (works on both OSes, so kept common rather than Linux.zsh). vimrc.local: has('mac') restores osascript light/dark (catppuccin-latte); else dark+habamax. tmux.conf.local has no Mac-only bits: unchanged. CLAUDE.md Layout updated. No CHANGELOG in repo. `zsh -n` passes on zshrc.local, fzf.zsh, both OS files. Not done: rcup, zfunc/_poetry (untouched).
+
+Human steps after merge: run rcup; `rm ~/.zshrc.branch.local` if a dangling symlink remains; open a new shell (exec zsh): on Linux `echo $PATH` has no /Library, /usr/local/Caskroom or ~/Library/Android entries; no thoughtbot zshenv PATH warning; on macOS check `echo $JAVA_HOME $UV_CACHE_DIR`, `conda --version`, and that vim picks light/dark. Note: poetry compinit now only runs if ~/.zfunc exists; zfunc/_poetry still hardcodes /Users/jbranam paths.
+
+Old branches (diff of branch vs merge-base with main, zshrc.local/zshenv.local/zshrc.branch.local/aliases.local): dalek, m1mbp, lifeomic: nothing unique. metacx: old rbenv init, pyenv init (eval "$(pyenv init -)"), anaconda at /Users/jbranam/anaconda3, n-install N_PREFIX=$HOME/n, Google Cloud SDK path/completion includes (~/installs/google-cloud-sdk), lerna/yarn npx aliases; asdf disabled. ailin.local: asdf miniconda on /Volumes/user, asdf.sh (stale). sunquan.local: SPARK_HOME=/opt/spark, asdf miniconda conda init (/Users/jonathan). Only maybe-worth-keeping: gcloud includes and N_PREFIX if still used; rest is stale. Nothing ported."""
 +++
 
 Implement the plan in /srv/shared/work/dotfiles-work/OS-SPLIT-PLAN.md (outside the repo; read it first). It replaces zshrc.branch.local, which is Dalek/macOS config loaded on every machine, with per-OS files picked by `uname -s`.
@@ -36,3 +42,8 @@ Implement the plan in /srv/shared/work/dotfiles-work/OS-SPLIT-PLAN.md (outside t
 
 ## Done when
 The branch has the changes above in small, focused commits; `zsh -n` passes on every touched zsh file; and the summary lists: the human's rcup and verification steps (remove any dangling ~/.zshrc.branch.local; `echo $PATH` shows no Mac paths on Linux; no thoughtbot zshenv PATH warning), plus the old-branch findings.
+
+## Thread
+
+### note · agent:ossplit · 2026-09-30T22:33:54.155Z
+done: zsh/os split, guarded common config, vim has('mac'), CLAUDE.md; zsh -n ok, main merged (already up to date); 7396cd8
