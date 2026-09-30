@@ -2,9 +2,9 @@
 id = "dl-c5fc"
 title = "Replace zshrc.branch.local with per-OS zsh config (zsh/os/), vim/tmux OS split"
 kind = "feature"
-state = "open"
+state = "planned"
 created_at = "2026-09-30T22:23:14.121Z"
-updated_at = "2026-09-30T22:23:14.121Z"
+updated_at = "2026-09-30T22:23:33.542961268Z"
 size = "M"
 +++
 
@@ -21,7 +21,7 @@ Implement the plan in /srv/shared/work/dotfiles-work/OS-SPLIT-PLAN.md (outside t
        [[ -f ~/.zsh/os/$(uname -s).zsh ]] && source ~/.zsh/os/$(uname -s).zsh
    Keep a single ~/.cargo/env load in common config.
 4. `git rm zshrc.branch.local`. Don't run rcup: it relinks $HOME and is the human's step.
-5. Vim: in vimrc.local, add an `if has('mac') ... else ... endif` split. Restore the osascript light/dark detection (UpdateColorScheme, catppuccin-latte in light mode) on Mac only; everywhere else stays set background=dark + habamax. The removed function is in git history (`git show HEAD~1:vimrc.local` or `git log -p vimrc.local`). tmux: check tmux.conf.local for Mac-only bits (pbcopy/pbpaste, reattach-to-user-namespace, open). Guard any you find with if-shell on `uname`; if there are none, change nothing.
+5. Vim: in vimrc.local, add an `if has('mac') ... else ... endif` split. Restore the osascript light/dark detection (UpdateColorScheme, catppuccin-latte in light mode) on Mac only; everywhere else stays set background=dark + habamax. The removed function is in git history: `git log -p vimrc.local`, the commit before the 2026-09-30 "always dark" change. tmux: check tmux.conf.local for Mac-only bits (pbcopy/pbpaste, reattach-to-user-namespace, open). Guard any you find with if-shell on `uname`; if there are none, change nothing.
 6. CLAUDE.md, "Layout": replace the zshrc.branch.local mention with zsh/os/ and the "guard on existence first, OS second" rule.
 
 ## Also
