@@ -33,3 +33,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # Branch local config
 [[ -f ~/.zshrc.branch.local ]] && source ~/.zshrc.branch.local
+
+# NUC (Linux). OS split (dl-c5fc): move to the Linux config (zsh/os/Linux.zsh),
+# or keep one guarded copy in common config if the Mac needs it too.
+# Added 2026-09-29 for rust on linux NUC (moved from zshenv.local 2026-09-30:
+# thoughtbot's zshenv warns if zshenv.local edits PATH)
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"

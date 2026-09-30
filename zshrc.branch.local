@@ -9,7 +9,9 @@ export PATH="${PYENV_ROOT}/shims:${PATH}"
 # PyEnv END
 
 # uv START
-export UV_CACHE_DIR=/Volumes/Data/.cache/uv
+# NUC (Linux), 2026-09-30: commented out; /Volumes/Data doesn't exist there.
+# OS split (dl-c5fc): re-enable in the macOS config (zsh/os/Darwin.zsh).
+# export UV_CACHE_DIR=/Volumes/Data/.cache/uv
 # uv END
 
 # Poetry START
