@@ -4,7 +4,7 @@ title = "Replace zshrc.branch.local with per-OS zsh config (zsh/os/), vim/tmux O
 kind = "feature"
 state = "planned"
 created_at = "2026-09-30T22:23:14.121Z"
-updated_at = "2026-09-30T22:23:33.542961268Z"
+updated_at = "2026-09-30T22:27:53.144196571Z"
 size = "M"
 +++
 
@@ -25,6 +25,7 @@ Implement the plan in /srv/shared/work/dotfiles-work/OS-SPLIT-PLAN.md (outside t
 6. CLAUDE.md, "Layout": replace the zshrc.branch.local mention with zsh/os/ and the "guard on existence first, OS second" rule.
 
 ## Also
+- Commit 7cdc8e3 holds the NUC (Linux) fixes: fzf.zsh (~/.fzf), the cargo env line in zshrc.local, UV_CACHE_DIR turned off, vim always dark. Each has a comment starting `NUC (Linux)` / `OS split (dl-c5fc)` that says where it goes. Put each in the right OS place, then remove the markers.
 - Follow the repo's convention: a dated comment above each added or moved setting saying why (e.g. `# Moved 2026-09-30 from zshrc.branch.local: macOS only`).
 - Check the syntax of every zsh file you touch with `zsh -n <file>`. You can't `exec zsh` in a worktree meaningfully, so say in your summary what the human should check after rcup.
 - Old branches (plan section "Old branches", step 1 only, read-only): diff each of origin/dalek, origin/m1mbp, origin/lifeomic, origin/metacx, origin/ailin.local and origin/sunquan.local against main for zshrc.local, zshenv.local, zshrc.branch.local and aliases.local, using the existing remote-tracking refs (no fetch). List anything worth keeping in your summary; don't port it. Tagging and deleting the branches isn't part of this task.
