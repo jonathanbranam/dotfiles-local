@@ -42,12 +42,6 @@ if [[ -d "$HOME/.pyenv" ]]; then
   export PATH="${PYENV_ROOT}/shims:${PATH}"
 fi
 
-# Poetry completions
-if [[ -d "$HOME/.zfunc" ]]; then
-  fpath+=~/.zfunc
-  autoload -Uz compinit && compinit
-fi
-
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 # Added 2026-09-29 for rust on linux NUC (moved from zshenv.local 2026-09-30:

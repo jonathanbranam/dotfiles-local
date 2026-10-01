@@ -45,7 +45,7 @@ COPY_ALWAYS="git_template/HEAD"
   (e.g. NOCOMMIT pre-commit hook).
 - `config/` — XDG-style app configs (karabiner, flake8) symlinked under `~/.config/`.
 - `local/bin/` — personal scripts intended to land on `$PATH`.
-- `psqlrc.local`, `ripgreprc`, `fzf.zsh`, `asdf/`, `emacs.d/`, `zfunc/` — misc tool configs.
+- `psqlrc.local`, `ripgreprc`, `fzf.zsh`, `asdf/`, `emacs.d/` — misc tool configs.
 
 ## Working in this repo
 
