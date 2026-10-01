@@ -163,3 +163,11 @@ nnoremap <localleader>D a<C-R>=strftime("%Y-%m-%d")<CR><Esc>
 nnoremap <localleader>t a<C-R>=strftime("%Y-%m-%d %a %H:%M")<CR><Esc>
 nnoremap <localleader>T a<C-R>=strftime("%Y-%m-%dT%H:%M")<CR><Esc>
 
+
+" bullets.vim
+" 2026-10-01
+" A parent checkbox is x only when every child is: bullets.vim picks
+" markers[ceil((len-1) * checked / children)], so with 50 partial markers
+" (51 divisions) it can't reach x early with up to 51 children. The partials
+" are . o O by thirds of children done, matching meta-notes' task update.
+let g:bullets_checkbox_markers = ' ' . repeat('.', 17) . repeat('o', 17) . repeat('O', 16) . 'x'
