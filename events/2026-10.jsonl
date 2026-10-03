@@ -5,3 +5,4 @@
 {"actor":"agent:manager-1","at":"2026-10-03T17:57:59.463001055Z","from":"open","task":"dl-d927","to":"integrated"}
 {"actor":"agent:manager-1","at":"2026-10-03T18:00:41.492152478Z","from":"open","task":"dl-3c6e","to":"integrated"}
 {"actor":"human","at":"2026-10-03T18:01:18.638Z","from":"","task":"dl-761c","to":"open"}
+{"actor":"agent:manager-1","at":"2026-10-03T18:01:54.640837070Z","from":"open","task":"dl-761c","to":"integrated"}
