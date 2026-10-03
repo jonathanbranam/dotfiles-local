@@ -1,0 +1,3 @@
+" Added 2026-10-03 (dl-b25b): meta-notes checkout on the NUC
+set runtimepath+=/srv/shared/work/meta-notes-work/meta-notes
+set runtimepath+=/srv/shared/work/meta-notes-work/meta-notes/after

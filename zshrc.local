@@ -54,3 +54,7 @@ export GPG_TTY="$(tty)"
 # Per-OS config (Darwin.zsh, Linux.zsh) under zsh/os/, deliberately not zsh/configs/
 # Added 2026-09-30 (dl-c5fc) to replace zshrc.branch.local, which loaded Mac paths everywhere
 [[ -f ~/.zsh/os/$(uname -s).zsh ]] && source ~/.zsh/os/$(uname -s).zsh
+
+# Per-machine config from host-<name>/zshrc.host (rcup links it only on that machine)
+# Added 2026-10-03 (dl-b25b) for settings that differ between machines, not OSes
+[[ -f ~/.zshrc.host ]] && source ~/.zshrc.host

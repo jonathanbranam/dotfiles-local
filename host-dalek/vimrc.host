@@ -1,0 +1,3 @@
+" Added 2026-10-03 (dl-b25b): meta-notes checkout on Dalek
+set runtimepath+=~/work/meta-notes-workspace/meta-notes
+set runtimepath+=~/work/meta-notes-workspace/meta-notes/after

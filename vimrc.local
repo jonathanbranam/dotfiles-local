@@ -143,17 +143,11 @@ vnoremap <leader>y "+y
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 
-" meta-notes plugin development
-" Changed 2026-10-03: load the checkout that exists (Mac: ~/work/...,
-" NUC: /srv/shared/work/...), so notes editing works on both.
-for s:meta_notes_dir in ['~/work/meta-notes-workspace/meta-notes',
-      \ '/srv/shared/work/meta-notes-work/meta-notes']
-  if isdirectory(expand(s:meta_notes_dir))
-    execute 'set runtimepath+=' . s:meta_notes_dir
-    execute 'set runtimepath+=' . s:meta_notes_dir . '/after'
-    break
-  endif
-endfor
+" Per-machine settings (meta-notes runtimepath, etc.) from host-<name>/vimrc.host
+" Added 2026-10-03 (dl-b25b): rcup links it only on the machine with that name.
+if filereadable(expand('~/.vimrc.host'))
+  source ~/.vimrc.host
+endif
 
 " Added 2026-10-03: meta-notes autosave and autoreload for notes buffers, so
 " Vim and agents editing through the CLI don't overwrite each other. Needs

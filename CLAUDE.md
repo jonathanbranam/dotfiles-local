@@ -37,7 +37,12 @@ COPY_ALWAYS="git_template/HEAD"
 - `zsh/os/Darwin.zsh`, `zsh/os/Linux.zsh` — per-OS zsh config, sourced at the end of `zshrc.local` by `uname -s`.
   They live under `zsh/os/`, never `zsh/configs/` (thoughtbot sources everything there on every OS). Rule:
   guard on existence first, OS second — put a setting in `zshrc.local` behind a `[[ -d/-f ... ]]` check when
-  that works anywhere; only genuinely OS-divergent things go in an OS file. No per-machine branches.
+  that works anywhere; only genuinely OS-divergent things go in an OS file. Existence guards are for "use it if installed", never for
+  choosing between machines — that is what `host-<name>/` is for.
+- `host-<name>/` (`host-nuc/`, `host-dalek/`) — per-machine config via rcm host folders: rcup links the files
+  only on the machine with that name (`host-nuc/vimrc.host` -> `~/.vimrc.host`). `vimrc.local`, `zshrc.local` and
+  `tmux.conf.local` each load their `*.host` file if present. Per-machine differences go here; OS differences stay
+  in `zsh/os/`. The name comes from `HOSTNAME=` in `~/.rcrc` (or `rcup -B <name>`).
 - `vimrc.local`, `vimrc.bundles.local`, `vim/` — vim config and plugin bundles; `vim/after/` holds
   ftplugin/plugin overrides loaded after the base vim setup.
 - `tmux.conf.local`, `tmux/plugins/tpm` (git submodule) — tmux config and the Tmux Plugin Manager.
