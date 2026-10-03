@@ -1,0 +1,29 @@
+#!/bin/sh
+# Added 2026-10-03 (dl-3c6e): keep a machine's dotfiles-local clone current from a scheduled job.
+# Usage: dotfiles-update [clone]   (default: $HOME/dotfiles-local)
+# Never forces: skips a dirty or non-main worktree and only fast-forwards.
+
+clone=${1:-$HOME/dotfiles-local}
+# Added 2026-10-03: failures are noticed via this log, so every skip and error lands here.
+log=$HOME/.local/state/dotfiles-update.log
+mkdir -p "$(dirname "$log")"
+
+say() { printf '%s %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >>"$log"; }
+
+cd "$clone" || { say "ERROR: cannot cd to $clone"; exit 1; }
+
+branch=$(git symbolic-ref --short -q HEAD)
+if [ "$branch" != main ]; then
+  say "skip: $clone is on '${branch:-detached HEAD}', not main"
+  exit 0
+fi
+if [ -n "$(git status --porcelain)" ]; then
+  say "skip: $clone has uncommitted changes"
+  exit 0
+fi
+
+# Added 2026-10-03: --ff-only so a diverged clone fails loudly instead of merging or rewriting.
+out=$(git pull --ff-only 2>&1) || { say "ERROR: git pull --ff-only failed: $out"; exit 1; }
+
+# Added 2026-10-03: rcup runs every time (cheap, and picks up new top-level files).
+out=$(rcup 2>&1) || { say "ERROR: rcup failed: $out"; exit 1; }
