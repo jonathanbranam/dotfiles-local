@@ -4,10 +4,11 @@ title = "Per-machine config via rcm host-<name>/ folders; move meta-notes path o
 kind = "feature"
 state = "open"
 created_at = "2026-10-03T17:27:47.287Z"
-updated_at = "2026-10-03T17:27:47.287Z"
+updated_at = "2026-10-03T17:57:02.175937003Z"
 created_by = "external:advisor/notes"
 watchers = ["external:advisor/notes"]
 size = "M"
+summary = "Added host-nuc/ and host-dalek/ (vimrc.host each, holding the meta-notes runtimepath: NUC /srv/shared/work/meta-notes-work/meta-notes, Dalek ~/work/meta-notes-workspace/meta-notes). vimrc.local now sources ~/.vimrc.host if readable, replacing the existence-check loop; autosave/autoreload settings stay global. zshrc.local sources ~/.zshrc.host and tmux.conf.local does source-file -q ~/.tmux.conf.host (before the tpm line); no host files for those yet. CLAUDE.md layout and zsh/os rule updated. Checked: zsh -n, vim sourcing vimrc.local with a host file. No CHANGELOG exists. After rcup (needs HOSTNAME=nuc|dalek in ~/.rcrc or rcup -B): ls -l ~/.vimrc.host; in vim :set rtp? shows the right meta-notes path; open tmux and exec zsh without errors."
 +++
 
 Per-machine config using rcm's built-in host folders (`host-<hostname>/`). Replaces the "guard on existence" approach for anything that differs between machines. Filed by advisor (notes) on 2026-10-03 from a discussion with the human.
