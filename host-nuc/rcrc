@@ -1,0 +1,6 @@
+# Added 2026-10-03 (dl-d927): rcrc is tracked per machine so ~/.rcrc is a symlink into this repo.
+# NUC works from the shared worktree checkout rather than ~/dotfiles-local.
+DOTFILES_DIRS="/srv/shared/work/dotfiles-work/dotfiles-local $HOME/dotfiles"
+HOSTNAME="nuc"
+EXCLUDES="*.md LICENSE CODEOWNERS"
+COPY_ALWAYS="git_template/HEAD"

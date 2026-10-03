@@ -12,13 +12,18 @@ specific unless noted otherwise.
 Both repos are installed into `$HOME` using [rcm](https://github.com/thoughtbot/rcm)'s `rcup` command, which
 symlinks each file into place (e.g. `vimrc.local` -> `~/.vimrc.local`, `zshrc.local` -> `~/.zshrc.local`).
 
-`~/.rcrc` controls the merge:
+`~/.rcrc` controls the merge. It is a symlink to the machine's tracked `host-<name>/rcrc` (bootstrap and
+install steps: `README.md`). Shape, from `host-dalek/rcrc`:
 
 ```
 DOTFILES_DIRS="$HOME/dotfiles-local $HOME/dotfiles"
+HOSTNAME="dalek"
 EXCLUDES="*.md LICENSE CODEOWNERS"
 COPY_ALWAYS="git_template/HEAD"
 ```
+
+`host-nuc/rcrc` differs only in `HOSTNAME="nuc"` and a first `DOTFILES_DIRS` entry of
+`/srv/shared/work/dotfiles-work/dotfiles-local`.
 
 - `DOTFILES_DIRS` lists both source directories, this repo first. When rcup walks the combined tree, a file
   present in `dotfiles-local` wins over the same-named file in `dotfiles`.
@@ -42,7 +47,7 @@ COPY_ALWAYS="git_template/HEAD"
 - `host-<name>/` (`host-nuc/`, `host-dalek/`) — per-machine config via rcm host folders: rcup links the files
   only on the machine with that name (`host-nuc/vimrc.host` -> `~/.vimrc.host`). `vimrc.local`, `zshrc.local` and
   `tmux.conf.local` each load their `*.host` file if present. Per-machine differences go here; OS differences stay
-  in `zsh/os/`. The name comes from `HOSTNAME=` in `~/.rcrc` (or `rcup -B <name>`).
+  in `zsh/os/`. The name comes from `HOSTNAME=` in `~/.rcrc` (or `rcup -B <name>`). Each folder's `rcrc` is `~/.rcrc`.
 - `vimrc.local`, `vimrc.bundles.local`, `vim/` — vim config and plugin bundles; `vim/after/` holds
   ftplugin/plugin overrides loaded after the base vim setup.
 - `tmux.conf.local`, `tmux/plugins/tpm` (git submodule) — tmux config and the Tmux Plugin Manager.
