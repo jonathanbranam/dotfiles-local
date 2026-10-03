@@ -144,8 +144,23 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 
 " meta-notes plugin development
-set runtimepath+=~/work/meta-notes-workspace/meta-notes
-set runtimepath+=~/work/meta-notes-workspace/meta-notes/after
+" Changed 2026-10-03: load the checkout that exists (Mac: ~/work/...,
+" NUC: /srv/shared/work/...), so notes editing works on both.
+for s:meta_notes_dir in ['~/work/meta-notes-workspace/meta-notes',
+      \ '/srv/shared/work/meta-notes-work/meta-notes']
+  if isdirectory(expand(s:meta_notes_dir))
+    execute 'set runtimepath+=' . s:meta_notes_dir
+    execute 'set runtimepath+=' . s:meta_notes_dir . '/after'
+    break
+  endif
+endfor
+
+" Added 2026-10-03: meta-notes autosave and autoreload for notes buffers, so
+" Vim and agents editing through the CLI don't overwrite each other. Needs
+" fswatch (Mac) or inotifywait (Linux) and tmux focus-events.
+let g:meta_notes_autosave = 1
+let g:meta_notes_autoreload = 1
+let g:meta_notes_checktime_interval = 5000
 
 " vim-easy-align
 " 2023-10-19
