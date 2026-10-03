@@ -25,5 +25,5 @@ fi
 # Added 2026-10-03: --ff-only so a diverged clone fails loudly instead of merging or rewriting.
 out=$(git pull --ff-only 2>&1) || { say "ERROR: git pull --ff-only failed: $out"; exit 1; }
 
-# Added 2026-10-03: rcup runs every time (cheap, and picks up new top-level files).
-out=$(rcup 2>&1) || { say "ERROR: rcup failed: $out"; exit 1; }
+# Added 2026-10-03: rcup -K to link files only, skipping thoughtbot hooks; plugin updates stay manual.
+out=$(rcup -K 2>&1) || { say "ERROR: rcup -K failed: $out"; exit 1; }

@@ -60,9 +60,10 @@ lsrc | grep dotfiles-local | head                             # optional: list w
 
 The NUC needs no job: its `$HOME` links into the bridle clone, which bridle keeps current. Other machines (Dalek
 and any other) run `local/bin/dotfiles-update` on a timer. It cds to the clone (argument, default
-`~/dotfiles-local`), skips if the worktree is dirty or not on `main`, runs `git pull --ff-only` then `rcup`, and
-never forces. Skips and failures are logged with timestamps to `~/.local/state/dotfiles-update.log`; that log is
-how you notice a problem.
+`~/dotfiles-local`), skips if the worktree is dirty or not on `main`, runs `git pull --ff-only` then `rcup -K`
+(links only, skipping thoughtbot hooks). Plugin updates stay manual via `rcup` or `:PlugUpdate`. Never forces.
+Skips and failures are logged with timestamps to `~/.local/state/dotfiles-update.log`; that log is how you
+notice a problem.
 
 ### macOS (launchd), every 15 minutes
 
