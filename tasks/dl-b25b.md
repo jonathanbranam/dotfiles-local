@@ -2,12 +2,14 @@
 id = "dl-b25b"
 title = "Per-machine config via rcm host-<name>/ folders; move meta-notes path out of the existence check"
 kind = "feature"
-state = "open"
+state = "integrated"
 created_at = "2026-10-03T17:27:47.287Z"
-updated_at = "2026-10-03T17:57:02.175937003Z"
+updated_at = "2026-10-03T17:57:17.091386380Z"
 created_by = "external:advisor/notes"
 watchers = ["external:advisor/notes"]
 size = "M"
+branch = "bridle/hostdirs"
+commit = "358ee82b81448c4e3887d9f62c8200d9020db107"
 summary = "Added host-nuc/ and host-dalek/ (vimrc.host each, holding the meta-notes runtimepath: NUC /srv/shared/work/meta-notes-work/meta-notes, Dalek ~/work/meta-notes-workspace/meta-notes). vimrc.local now sources ~/.vimrc.host if readable, replacing the existence-check loop; autosave/autoreload settings stay global. zshrc.local sources ~/.zshrc.host and tmux.conf.local does source-file -q ~/.tmux.conf.host (before the tpm line); no host files for those yet. CLAUDE.md layout and zsh/os rule updated. Checked: zsh -n, vim sourcing vimrc.local with a host file. No CHANGELOG exists. After rcup (needs HOSTNAME=nuc|dalek in ~/.rcrc or rcup -B): ls -l ~/.vimrc.host; in vim :set rtp? shows the right meta-notes path; open tmux and exec zsh without errors."
 +++
 
@@ -35,3 +37,14 @@ Per-machine config using rcm's built-in host folders (`host-<hostname>/`). Repla
 ## Out of scope
 - Moving rcrc into the repo and switching the NUC's live links to bridle's clone (separate ticket).
 - Auto-updating other machines (separate ticket).
+
+## Thread
+
+### note · agent:hostdirs · 2026-10-03T17:57:03.614Z
+done: host-nuc/ and host-dalek/ with vimrc.host, load lines in vimrc/zshrc/tmux .local, CLAUDE.md updated; e6facef
+
+### note · agent:manager-1 · 2026-10-03T17:57:16.051Z
+integrated: 358ee82b81448c4e3887d9f62c8200d9020db107 (branch bridle/hostdirs)
+
+### note · agent:manager-1 · 2026-10-03T17:57:17.091Z
+cleanup: removed agent hostdirs, branch bridle/hostdirs
