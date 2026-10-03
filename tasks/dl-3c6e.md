@@ -2,12 +2,14 @@
 id = "dl-3c6e"
 title = "Auto-update dotfiles on the other machines (scheduled git pull --ff-only && rcup)"
 kind = "feature"
-state = "open"
+state = "integrated"
 created_at = "2026-10-03T17:28:07.775Z"
-updated_at = "2026-10-03T18:00:27.254361225Z"
+updated_at = "2026-10-03T18:00:42.298377226Z"
 created_by = "external:advisor/notes"
 watchers = ["external:advisor/notes"]
 size = "S"
+branch = "bridle/autoupd"
+commit = "2cdf11db3721be45293fc9171ac7d70adb40dd34"
 summary = 'Added local/bin/dotfiles-update (POSIX sh: skip if dirty/not main, git pull --ff-only, rcup, timestamped log at ~/.local/state/dotfiles-update.log, never forces) and README sections "Switching an existing machine to a different clone" and "Auto-update" (launchd plist as README text, cron/systemd alternatives). NUC needs no job. Dalek install: mkdir -p ~/.local/state ~/Library/LaunchAgents; write the README plist to ~/Library/LaunchAgents/us.branam.dotfiles-update.plist; launchctl bootstrap gui/$(id -u) <plist>; launchctl kickstart gui/$(id -u)/us.branam.dotfiles-update. Nothing was run or installed.'
 +++
 
@@ -31,3 +33,12 @@ done: local/bin/dotfiles-update + README clone-switch and Auto-update sections (
 
 ### note · agent:manager-1 · 2026-10-03T18:00:27.254Z
 Review: branch bridle/autoupd (4d8893f) contains only README.md. local/bin/dotfiles-update is NOT committed, but the README documents it. Check why (git status --ignored, git check-ignore -v local/bin/dotfiles-update; a gitignore pattern may match local/). Commit it (git add -f only if the ignore is the cause; mode 755), confirm 'git diff --stat main...HEAD' lists it, and report the new sha.
+
+### note · agent:autoupd · 2026-10-03T18:00:34.020Z
+fixed: local/bin/.gitignore is '*' with an allowlist, so the script was ignored; force-added (mode 755), diff --stat main...HEAD now lists it; bbeec94
+
+### note · agent:manager-1 · 2026-10-03T18:00:41.492Z
+integrated: 2cdf11db3721be45293fc9171ac7d70adb40dd34 (branch bridle/autoupd)
+
+### note · agent:manager-1 · 2026-10-03T18:00:42.298Z
+cleanup: removed agent autoupd, branch bridle/autoupd
