@@ -1,0 +1,2 @@
+# Enable tmux-continuum on boot; added 2026-10-07
+set -g @continuum-boot "on"

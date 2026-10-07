@@ -113,6 +113,7 @@ set -g @tpm_plugins '              \
   tmux-plugins/tmux-sensible       \
   tmux-plugins/tmux-resurrect      \
   tmux-plugins/tmux-pain-control   \
+  tmux-plugins/tmux-continuum      \
 '
 # Other examples:
 # set -g @plugin 'github_username/plugin_name'
@@ -121,6 +122,9 @@ set -g @tpm_plugins '              \
 
 # Override new window binding from tmux-pain-control
 bind-key "c" new-window
+
+# Enable tmux-continuum; added 2026-10-07
+set -g @continuum-restore "on"
 
 # Per-machine config from host-<name>/tmux.conf.host (rcup links it only on that machine)
 # Added 2026-10-03 (dl-b25b); -q ignores it when absent
