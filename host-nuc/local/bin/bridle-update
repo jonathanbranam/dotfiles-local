@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+# Added 2026-10-08: update bridle and bridle-ui on the NUC in one command, until upgrades are automated
+# (the human, via the meta-notes orchestrator: "short-term; write a script to do that").
+# Steps: pull, wait for green CI on HEAD, build/install, restart daemons and the gateway.
+# Skips a build when HEAD is what was last installed (stamp files in ~/.bridle).
+# Stops at the first failure with a non-zero exit, leaving whatever is running alone.
+set -euo pipefail
+
+BRIDLE_DIR=/srv/shared/work/bridle-work/bridle
+UI_DIR=/srv/shared/work/bridle-ui-work/bridle-ui
+BRIDLE_STAMP=$HOME/.bridle/installed-bridle-sha
+UI_STAMP=$HOME/.bridle/installed-bridle-ui-sha
+GATEWAY_URL=http://100.98.56.41:7878/
+
+say() { printf '==> %s\n' "$*"; }
+die() { printf 'bridle-update: %s\n' "$*" >&2; exit 1; }
+
+# Pull main fast-forward only; refuse if the checkout is on another branch.
+pull() {
+  local dir=$1 branch
+  branch=$(git -C "$dir" rev-parse --abbrev-ref HEAD)
+  [[ $branch == main ]] || die "$dir is on '$branch', not main"
+  say "git pull --ff-only in $dir"
+  git -C "$dir" pull --ff-only
+}
+
+# Succeed only when every CI run for HEAD passed; wait for any still running.
+require_green_ci() {
+  local dir=$1 sha runs pending id bad
+  sha=$(git -C "$dir" rev-parse HEAD)
+  say "checking CI for ${sha:0:12}"
+  runs=$(cd "$dir" && gh run list --commit "$sha" --json databaseId,status,conclusion,workflowName)
+  [[ $(jq length <<<"$runs") -gt 0 ]] || die "no CI run for ${sha:0:12} yet; try again shortly"
+  pending=$(jq -r '.[] | select(.status != "completed") | .databaseId' <<<"$runs")
+  for id in $pending; do
+    say "waiting for CI run $id"
+    (cd "$dir" && gh run watch "$id" --exit-status >/dev/null) || die "CI run $id failed for ${sha:0:12}"
+  done
+  runs=$(cd "$dir" && gh run list --commit "$sha" --json status,conclusion,workflowName)
+  bad=$(jq -r '.[] | select(.conclusion | IN("success","skipped","neutral") | not) | "\(.workflowName): \(.conclusion)"' <<<"$runs")
+  [[ -z $bad ]] || die "CI is not green for ${sha:0:12}: $bad"
+  say "CI green"
+}
+
+# --- bridle ---------------------------------------------------------------
+pull "$BRIDLE_DIR"
+bridle_sha=$(git -C "$BRIDLE_DIR" rev-parse HEAD)
+if [[ -f $BRIDLE_STAMP && $(<"$BRIDLE_STAMP") == "$bridle_sha" ]]; then
+  say "bridle ${bridle_sha:0:12} already installed; skipping build and restarts"
+else
+  require_green_ci "$BRIDLE_DIR"
+  say "cargo install bridle (about 5 minutes)"
+  cargo install --locked --path "$BRIDLE_DIR/crates/bridle"
+
+  # Only running daemons (stale registry files would fail). Never --upgrade (bridle ticket mtdg).
+  for project in $(bridle daemons --json | jq -r '.[].project'); do
+    say "restarting daemon: $project"
+    bridle --project "$project" daemon restart
+  done
+
+  say "restarting bridle-gateway"
+  systemctl --user restart bridle-gateway
+  echo "$bridle_sha" >"$BRIDLE_STAMP"
+fi
+
+# --- bridle-ui ------------------------------------------------------------
+ui_old=$(git -C "$UI_DIR" rev-parse HEAD)
+pull "$UI_DIR"
+ui_sha=$(git -C "$UI_DIR" rev-parse HEAD)
+if [[ -f $UI_STAMP && $(<"$UI_STAMP") == "$ui_sha" ]]; then
+  say "bridle-ui ${ui_sha:0:12} already installed; skipping"
+else
+  require_green_ci "$UI_DIR"
+  if [[ ! -d $UI_DIR/node_modules ]] || ! git -C "$UI_DIR" diff --quiet "$ui_old" "$ui_sha" -- package-lock.json; then
+    say "npm ci"
+    (cd "$UI_DIR" && npm ci)
+  fi
+  say "npm run install-ui"
+  (cd "$UI_DIR" && npm run install-ui)
+  echo "$ui_sha" >"$UI_STAMP"
+fi
+
+# --- check ----------------------------------------------------------------
+code=$(curl -s -o /dev/null -w '%{http_code}' "$GATEWAY_URL" || true)
+[[ $code == 200 ]] || die "gateway at $GATEWAY_URL answered $code, expected 200"
+say "done: bridle ${bridle_sha:0:12}, bridle-ui ${ui_sha:0:12}, gateway OK"
