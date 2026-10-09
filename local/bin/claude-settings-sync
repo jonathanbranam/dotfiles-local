@@ -1,0 +1,40 @@
+#!/bin/sh
+# Added 2026-10-09: merge tracked Claude Code settings into ~/.claude/settings.json.
+# Claude Code writes that file itself (/tui, /config, /model, plugins, autoMode), so it can't be a
+# symlink into this public repo. Instead the tracked files are deep-merged over it, in order:
+#   ~/.claude/settings.shared.json   (claude/settings.shared.json, every machine)
+#   ~/.claude/settings.host.json     (host-<name>/claude/settings.host.json, optional)
+# Tracked keys win; every other key stays local and never enters the repo. Rewrites only on change,
+# keeping the previous file as settings.json.bak. Removing a key from a tracked file doesn't remove
+# it locally. Usage: claude-settings-sync [-q]
+set -eu
+
+dir=${CLAUDE_CONFIG_DIR:-$HOME/.claude}
+target=$dir/settings.json
+quiet=
+[ "${1:-}" = -q ] && quiet=1
+
+warn() { echo "claude-settings-sync: $*" >&2; }
+
+command -v jq >/dev/null 2>&1 || { [ -n "$quiet" ] || warn "jq not found, skipping"; exit 0; }
+
+set --
+for f in "$dir/settings.shared.json" "$dir/settings.host.json"; do
+  [ -f "$f" ] && set -- "$@" "$f"
+done
+[ $# -gt 0 ] || exit 0
+
+[ -f "$target" ] || printf '{}\n' >"$target"
+
+tmp=$(mktemp "$dir/.settings.json.XXXXXX")
+trap 'rm -f "$tmp"' EXIT
+
+# Errors print even with -q: a silent failure would hide a broken settings file.
+jq -s 'reduce .[] as $x ({}; . * $x)' "$target" "$@" >"$tmp" || { warn "merge failed, $target unchanged"; exit 1; }
+
+jq -e -s '.[0] == .[1]' "$target" "$tmp" >/dev/null && exit 0
+
+cp "$target" "$target.bak"
+chmod 644 "$tmp"
+mv "$tmp" "$target"
+[ -n "$quiet" ] || echo "claude-settings-sync: updated $target (previous in settings.json.bak)"

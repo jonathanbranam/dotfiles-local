@@ -54,7 +54,14 @@ COPY_ALWAYS="git_template/HEAD"
 - `gitconfig.local`, `gitignore`, `git_template.local/` — git config, global ignore, and template hooks
   (e.g. NOCOMMIT pre-commit hook).
 - `config/` — XDG-style app configs (karabiner, flake8) symlinked under `~/.config/`.
-- `local/bin/` — personal scripts intended to land on `$PATH`.
+- `local/bin/` — personal scripts intended to land on `$PATH`. Its `.gitignore` ignores everything by default;
+  whitelist a script there to track it.
+- `claude/settings.shared.json` (and optional `host-<name>/claude/settings.host.json`) — Claude Code user
+  settings shared across machines. Never symlinked over `~/.claude/settings.json` (Claude Code writes that file,
+  and its `autoMode` block describes private infra): `local/bin/claude-settings-sync` deep-merges them into it,
+  tracked keys winning, run from `hooks/post-up`, from `local/bin/dotfiles-update` (whose `rcup -K` skips
+  hooks), or by hand. Only put keys here that are safe in a public repo — no `env` secrets, `apiKeyHelper`, or
+  `autoMode`.
 - `psqlrc.local`, `ripgreprc`, `fzf.zsh`, `asdf/`, `emacs.d/` — misc tool configs.
 
 ## Working in this repo
