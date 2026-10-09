@@ -1,0 +1,4 @@
+#!/bin/sh
+# Added 2026-10-09: apply claude/settings.shared.json right after rcup links it.
+# Called by path because ~/.local/bin may not be on PATH during a first rcup.
+exec "$(dirname "$0")/../local/bin/claude-settings-sync"

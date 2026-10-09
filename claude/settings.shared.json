@@ -1,0 +1,20 @@
+{
+  "editorMode": "vim",
+  "statusLine": {
+    "type": "command",
+    "command": "bridle statusline"
+  },
+  "agentPushNotifEnabled": true,
+  "autoMemoryEnabled": false,
+  "autoDreamEnabled": false,
+  "tui": "fullscreen",
+  "promptSuggestionEnabled": false,
+  "voiceEnabled": false,
+  "voice": {
+    "enabled": false,
+    "mode": "hold"
+  },
+  "model": "opus",
+  "effortLevel": "medium",
+  "theme": "dark"
+}

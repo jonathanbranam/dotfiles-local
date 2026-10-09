@@ -27,3 +27,6 @@ out=$(git pull --ff-only 2>&1) || { say "ERROR: git pull --ff-only failed: $out"
 
 # Added 2026-10-03: rcup -K to link files only, skipping thoughtbot hooks; plugin updates stay manual.
 out=$(rcup -K 2>&1) || { say "ERROR: rcup -K failed: $out"; exit 1; }
+
+# Added 2026-10-09: rcup -K skips hooks/post-up, so apply the tracked Claude Code settings directly.
+out=$("$clone/local/bin/claude-settings-sync" 2>&1) || say "ERROR: claude-settings-sync failed: $out"
