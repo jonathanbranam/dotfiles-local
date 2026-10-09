@@ -1,5 +1,5 @@
 # Added 2026-10-03 (dl-d927): rcrc is tracked per machine so ~/.rcrc is a symlink into this repo.
 DOTFILES_DIRS="$HOME/dotfiles-local $HOME/dotfiles"
 HOSTNAME="dalek"
-EXCLUDES="*.md LICENSE CODEOWNERS"
-COPY_ALWAYS="git_template/HEAD"
+# Added 2026-10-09: skip thoughtbot's git_template (shared git hooks); bridle installs its own hooks per clone
+EXCLUDES="*.md LICENSE CODEOWNERS dotfiles:git_template/*"

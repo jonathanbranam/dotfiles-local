@@ -18,8 +18,7 @@ install steps: `README.md`). Shape, from `host-dalek/rcrc`:
 ```
 DOTFILES_DIRS="$HOME/dotfiles-local $HOME/dotfiles"
 HOSTNAME="dalek"
-EXCLUDES="*.md LICENSE CODEOWNERS"
-COPY_ALWAYS="git_template/HEAD"
+EXCLUDES="*.md LICENSE CODEOWNERS dotfiles:git_template/*"
 ```
 
 `host-nuc/rcrc` differs only in `HOSTNAME="nuc"` and a first `DOTFILES_DIRS` entry of
@@ -51,8 +50,8 @@ COPY_ALWAYS="git_template/HEAD"
 - `vimrc.local`, `vimrc.bundles.local`, `vim/` — vim config and plugin bundles; `vim/after/` holds
   ftplugin/plugin overrides loaded after the base vim setup.
 - `tmux.conf.local`, `tmux/plugins/tpm` (git submodule) — tmux config and the Tmux Plugin Manager.
-- `gitconfig.local`, `gitignore`, `git_template.local/` — git config, global ignore, and template hooks
-  (e.g. NOCOMMIT pre-commit hook).
+- `gitconfig.local`, `gitignore` — git config and global ignore. No git template or shared hooks: thoughtbot's
+  `git_template` is excluded in each `rcrc` and `init.templatedir` is empty (removed 2026-10-09).
 - `config/` — XDG-style app configs (karabiner, flake8) symlinked under `~/.config/`.
 - `local/bin/` — personal scripts intended to land on `$PATH`.
 - `psqlrc.local`, `ripgreprc`, `fzf.zsh`, `asdf/`, `emacs.d/` — misc tool configs.

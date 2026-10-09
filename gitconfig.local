@@ -1,5 +1,7 @@
 [init]
   defaultBranch = main
+  # Added 2026-10-09: override thoughtbot's ~/.git_template so new clones get no shared hooks
+  templatedir =
 [push]
   followTags = true
 [pull]
