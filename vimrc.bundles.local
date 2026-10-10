@@ -72,7 +72,9 @@ Plug 'macguirerintoul/night_owl_light.vim'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 " replace pbrisbin/vim-mkdir
-UnPlug 'pbrisbin/vim-mkdir'
+" Changed 2026-10-09: UnPlug takes vim-plug's short name; 'pbrisbin/vim-mkdir' never matched,
+" so vim-mkdir stayed installed alongside vim-automkdir
+UnPlug 'vim-mkdir'
 Plug 'benizi/vim-automkdir'
 
 " Added 2026-10-09: fzf's `./install --all` rewrites ~/.fzf.zsh and appends to ~/.zshrc,
