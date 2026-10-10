@@ -75,6 +75,13 @@ Plug 'sonph/onehalf', { 'rtp': 'vim' }
 UnPlug 'pbrisbin/vim-mkdir'
 Plug 'benizi/vim-automkdir'
 
+" Added 2026-10-09: fzf's `./install --all` rewrites ~/.fzf.zsh and appends to ~/.zshrc,
+" both links into the dotfiles repos; --bin only fetches the binary. Re-declaring a plugin
+" replaces thoughtbot's spec (vim-plug keys on the name), so no UnPlug is needed.
+if !exists("g:brew_fzf_path") || !isdirectory(g:brew_fzf_path)
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+endif
+
 " Working better with buffers
 " This was breaking my Ag search
 " Plug 'fholgado/minibufexpl.vim'
