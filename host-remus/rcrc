@@ -1,0 +1,5 @@
+# Added 2026-10-03 (dl-d927): rcrc is tracked per machine so ~/.rcrc is a symlink into this repo.
+DOTFILES_DIRS="$HOME/work/dotfiles/local-df $HOME/work/dotfiles/thoughtbot-df"
+HOSTNAME="remus"
+# Added 2026-10-09: skip thoughtbot's git_template (shared git hooks); bridle installs its own hooks per clone
+EXCLUDES="*.md LICENSE CODEOWNERS $HOME/work/dotfiles/thoughtbot-df:git_template/*"
