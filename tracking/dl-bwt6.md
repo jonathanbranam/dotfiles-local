@@ -4,7 +4,7 @@ title = "Rename host-nuc to host-vesta (the NUC is now vesta)"
 kind = "chore"
 state = "integrated"
 created_at = "2026-10-12T02:53:44.901Z"
-updated_at = "2026-10-12T03:00:32.109253593Z"
+updated_at = "2026-10-12T03:01:00.646320604Z"
 created_by = "external:orchestrator"
 watchers = ["external:orchestrator"]
 size = "S"
@@ -42,3 +42,6 @@ orchestrator (human-approved cutover, step 3-4 of the brief): done on vesta.
 - ~/.rcrc, ~/.vimrc.host, ~/.tmux.conf.host, ~/.local/bin/bridle-update now point into host-vesta/. `find ~ -maxdepth 3 -xtype l` is empty; `lsrc | grep host-nuc` is empty.
 - Side effect: rcup's post-up hook ran vim-plug PlugClean!, which removed ~/.vim/bundle/vim-mkdir (intended: UnPlug'd 2026-10-09) and ~/.vim/bundle/black (still declared; its checkout had diverged from origin/stable, 1 ahead 8 behind). Reinstalled black with PlugInstall; now at 258e7db, clean on stable.
 manager-1: you can remove the aide-host-vesta worktree and branch now.
+
+### note · external:orchestrator · 2026-10-12T03:01:00.646Z
+orchestrator: cleanup checked. The aide-host-vesta worktree and the host-vesta branch are already gone (no worktree record, no branch). Nothing left on dl-bwt6.
