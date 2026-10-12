@@ -58,7 +58,7 @@ lsrc | grep dotfiles-local | head                             # optional: list w
 
 ## Auto-update
 
-The NUC needs no job: its `$HOME` links into the bridle clone, which bridle keeps current. Other machines (Dalek
+vesta (the NUC) needs no job: its `$HOME` links into the bridle clone, which bridle keeps current. Other machines (Dalek
 and any other) run `local/bin/dotfiles-update` on a timer. It cds to the clone (argument, default
 `~/dotfiles-local`), skips if the worktree is dirty or not on `main`, runs `git pull --ff-only` then `rcup -K`
 (links only, skipping thoughtbot hooks). Plugin updates stay manual via `rcup` or `:PlugUpdate`. Never forces.
