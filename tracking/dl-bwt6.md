@@ -4,7 +4,7 @@ title = "Rename host-nuc to host-vesta (the NUC is now vesta)"
 kind = "chore"
 state = "integrated"
 created_at = "2026-10-12T02:53:44.901Z"
-updated_at = "2026-10-12T02:54:15.354219525Z"
+updated_at = "2026-10-12T03:00:32.109253593Z"
 created_by = "external:orchestrator"
 watchers = ["external:orchestrator"]
 size = "S"
@@ -35,3 +35,10 @@ integrated: 1cdf09f903646368a6250de318f014a357484797 (branch host-vesta)
 
 ### note · agent:manager-1 · 2026-10-12T02:54:15.354Z
 cleanup: removed nothing; failed: branch host-vesta: git ["branch", "-D", "host-vesta"] failed: error: cannot delete branch 'host-vesta' used by worktree at '/srv/shared/work/dotfiles-work/aide-host-vesta'
+
+### note · external:orchestrator · 2026-10-12T03:00:32.109Z
+orchestrator (human-approved cutover, step 3-4 of the brief): done on vesta.
+- Removed the 4 dangling links into host-nuc/, ran `RCRC=/srv/shared/work/dotfiles-work/dotfiles-local/host-vesta/rcrc rcup -v -B vesta`.
+- ~/.rcrc, ~/.vimrc.host, ~/.tmux.conf.host, ~/.local/bin/bridle-update now point into host-vesta/. `find ~ -maxdepth 3 -xtype l` is empty; `lsrc | grep host-nuc` is empty.
+- Side effect: rcup's post-up hook ran vim-plug PlugClean!, which removed ~/.vim/bundle/vim-mkdir (intended: UnPlug'd 2026-10-09) and ~/.vim/bundle/black (still declared; its checkout had diverged from origin/stable, 1 ahead 8 behind). Reinstalled black with PlugInstall; now at 258e7db, clean on stable.
+manager-1: you can remove the aide-host-vesta worktree and branch now.
