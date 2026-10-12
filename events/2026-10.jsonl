@@ -7,3 +7,5 @@
 {"actor":"human","at":"2026-10-03T18:01:18.638Z","from":"","task":"dl-761c","to":"open"}
 {"actor":"agent:manager-1","at":"2026-10-03T18:01:54.640837070Z","from":"open","task":"dl-761c","to":"integrated"}
 {"actor":"human","at":"2026-10-12T02:53:44.901Z","from":"","task":"dl-bwt6","to":"pending"}
+{"actor":"external:orchestrator","at":"2026-10-12T02:54:02.090165478Z","from":"pending","task":"dl-bwt6","to":"open"}
+{"actor":"agent:manager-1","at":"2026-10-12T02:54:15.349230789Z","from":"open","task":"dl-bwt6","to":"integrated"}
