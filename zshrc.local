@@ -58,3 +58,16 @@ export GPG_TTY="$(tty)"
 # Per-machine config from host-<name>/zshrc.host (rcup links it only on that machine)
 # Added 2026-10-03 (dl-b25b) for settings that differ between machines, not OSes
 [[ -f ~/.zshrc.host ]] && source ~/.zshrc.host
+
+# Warn at launch about missing tools these dotfiles expect (package names work for brew and apt)
+# Added 2026-10-14: remus lacked jq, so claude-settings-sync failed silently during rcup
+# nvim listed ahead of switching from vim; rcup, gh (pr aliases), git-lfs (gitconfig.local filter) added the same day
+() {
+  local -A pkg=(vim vim nvim neovim rg ripgrep fzf fzf jq jq tmux tmux rcup rcm gh gh git-lfs git-lfs)
+  local cmd; local -a missing
+  for cmd in vim nvim rg fzf jq tmux rcup gh git-lfs; do (( $+commands[$cmd] )) || missing+=($pkg[$cmd]); done
+  (( $#missing )) || return 0
+  local install="sudo apt-get install"
+  [[ $OSTYPE == darwin* ]] && install="brew install"
+  print -u2 "dotfiles: missing ${(j:, :)missing}; install with: $install $missing"
+}
