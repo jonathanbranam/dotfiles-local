@@ -8,6 +8,11 @@
 # (turned off on the Linux NUC 2026-09-30 because /Volumes/Data doesn't exist)
 [[ -d /Volumes/Data ]] && export UV_CACHE_DIR=/Volumes/Data/.cache/uv
 
+# Added 2026-09-23 to quickly show this machine's LAN IP (Wi-Fi/en0).
+# Moved 2026-10-14 (dl-5rnw) from aliases.local: macOS only, because it shadowed
+# iproute2's ip on Linux (vesta, remus).
+alias ip='ipconfig getifaddr en0'
+
 # Java
 # Moved 2026-09-30 from zshrc.branch.local: macOS only path
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
