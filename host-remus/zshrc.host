@@ -1,0 +1,2 @@
+# Added 2026-10-14: named directory so ~work expands to this machine's work folder
+hash -d work=$HOME/work
