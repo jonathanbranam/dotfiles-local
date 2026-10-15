@@ -90,7 +90,7 @@ endif
 
 " 2023-12-02
 Plug 'psf/black', { 'branch': 'stable' }
-Plug 'gabrielelana/vim-markdown'
+" Removed 2026-10-15: gabrielelana/vim-markdown caused a weird hanging indent in Markdown
 
 " 2023-12-08
 Plug 'dkarter/bullets.vim'
