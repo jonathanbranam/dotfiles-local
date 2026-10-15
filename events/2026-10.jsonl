@@ -18,3 +18,4 @@
 {"actor":"external:orchestrator","at":"2026-10-15T21:52:11.658957522Z","from":"pending","task":"dl-ruv9","to":"open"}
 {"actor":"external:orchestrator","at":"2026-10-15T22:02:01.514619601Z","from":"open","task":"dl-ruv9","to":"planned"}
 {"actor":"external:orchestrator","at":"2026-10-15T22:02:01.793359578Z","queue":"reprioritized"}
+{"actor":"agent:manager-2","at":"2026-10-15T22:02:54.094838434Z","from":"planned","task":"dl-ruv9","to":"integrated"}
