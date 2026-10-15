@@ -6,3 +6,6 @@ tasks = ["dl-5rnw"]
 
 [[tier]]
 tasks = ["dl-ruv9"]
+
+[[tier]]
+tasks = ["dl-v27w"]

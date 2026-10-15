@@ -20,3 +20,6 @@
 {"actor":"external:orchestrator","at":"2026-10-15T22:02:01.793359578Z","queue":"reprioritized"}
 {"actor":"agent:manager-2","at":"2026-10-15T22:02:54.094838434Z","from":"planned","task":"dl-ruv9","to":"integrated"}
 {"actor":"human","at":"2026-10-15T22:11:12.343Z","from":"","task":"dl-v27w","to":"pending"}
+{"actor":"external:orchestrator","at":"2026-10-15T22:49:51.823384897Z","from":"pending","task":"dl-v27w","to":"open"}
+{"actor":"external:orchestrator","at":"2026-10-15T22:49:57.677214800Z","from":"open","task":"dl-v27w","to":"planned"}
+{"actor":"external:orchestrator","at":"2026-10-15T22:49:57.955367375Z","queue":"reprioritized"}
