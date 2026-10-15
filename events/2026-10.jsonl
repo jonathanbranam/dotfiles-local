@@ -23,3 +23,4 @@
 {"actor":"external:orchestrator","at":"2026-10-15T22:49:51.823384897Z","from":"pending","task":"dl-v27w","to":"open"}
 {"actor":"external:orchestrator","at":"2026-10-15T22:49:57.677214800Z","from":"open","task":"dl-v27w","to":"planned"}
 {"actor":"external:orchestrator","at":"2026-10-15T22:49:57.955367375Z","queue":"reprioritized"}
+{"actor":"agent:manager-2","at":"2026-10-15T22:51:07.907838343Z","from":"planned","task":"dl-v27w","to":"integrated"}
