@@ -42,7 +42,7 @@ if has('mac')
   call g:UpdateColorScheme()
 else
   set background=dark
-  " colorscheme onehalfdark
+  " Removed 2026-10-15: the commented onehalfdark line was dead (onehalf is no longer installed)
   colorscheme habamax
 endif
 

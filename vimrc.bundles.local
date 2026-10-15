@@ -24,8 +24,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 " git stuff in the gutter
 Plug 'airblade/vim-gitgutter'
-" database access from vim
-Plug 'tpope/vim-dadbod'
 Plug 'christoomey/vim-tmux-navigator'
 " Chording
 Plug 'kana/vim-arpeggio'
@@ -46,36 +44,27 @@ Plug 'hashivim/vim-terraform'
 " readline bindings to vim command-line
 Plug 'ryvnf/readline.vim'
 
-" Scala plugins
-Plug 'derekwyatt/vim-scala'
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-
 " Easy align for table alignment (and other) 2023-10-19
 Plug 'junegunn/vim-easy-align'
 
 Plug 'jonathanbranam/vim-ripgrep'
 
 " themes
-Plug 'morhetz/gruvbox'
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'mofiqul/vscode.nvim'
-Plug 'ghifarit53/tokyonight-vim'
-Plug 'nlknguyen/papercolor-theme'
-Plug 'gosukiwi/vim-atom-dark'
-Plug 'sainnhe/sonokai'
-Plug 'h3xx/vim-late_evening'
-Plug 'sonph/onehalf'
+" Trimmed 2026-10-15: the human uses only their own colour setup, so only catppuccin stays
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-Plug 'macguirerintoul/night_owl_light.vim'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 " replace pbrisbin/vim-mkdir
 " Changed 2026-10-09: UnPlug takes vim-plug's short name; 'pbrisbin/vim-mkdir' never matched,
 " so vim-mkdir stayed installed alongside vim-automkdir
 UnPlug 'vim-mkdir'
 Plug 'benizi/vim-automkdir'
+
+" Unplugged 2026-10-15: the human does not write Ruby or Elixir in Vim
+UnPlug 'vim-elixir'
+UnPlug 'vim-rails'
+UnPlug 'vim-rake'
+UnPlug 'vim-bundler'
+UnPlug 'vim-ruby'
 
 " Added 2026-10-09: fzf's `./install --all` rewrites ~/.fzf.zsh and appends to ~/.zshrc,
 " both links into the dotfiles repos; --bin only fetches the binary. Re-declaring a plugin
@@ -88,10 +77,10 @@ endif
 " This was breaking my Ag search
 " Plug 'fholgado/minibufexpl.vim'
 
-" 2023-12-02
-Plug 'psf/black', { 'branch': 'stable' }
+" Removed 2026-10-15: psf/black (the human uses ruff now)
 " Removed 2026-10-15: gabrielelana/vim-markdown caused a weird hanging indent in Markdown
 
+" Moved 2026-10-15: bullets.vim moved to its new home (was dkarter/bullets.vim)
 " 2023-12-08
-Plug 'dkarter/bullets.vim'
+Plug 'bullets-vim/bullets.vim'
 
