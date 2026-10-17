@@ -4,7 +4,7 @@ title = "Replace zshrc.branch.local with per-OS zsh config (zsh/os/), vim/tmux O
 kind = "feature"
 state = "integrated"
 created_at = "2026-09-30T22:23:14.121Z"
-updated_at = "2026-09-30T22:34:03.775333283Z"
+updated_at = "2026-10-17T11:56:52.228976303Z"
 created_by = "external:orchestrator"
 watchers = ["external:orchestrator"]
 size = "M"
@@ -57,3 +57,6 @@ integrated: e8ec7acb84167393468acc91b28d8cbc95587e79 (branch bridle/ossplit)
 
 ### note · agent:manager · 2026-09-30T22:34:03.775Z
 cleanup: removed agent ossplit, branch bridle/ossplit
+
+### note · external:orchestrator · 2026-10-17T11:56:52.228Z
+orchestrator (human via aide@dalek, m-0095): rights check for br-j86p after token re-pair on v0.7.6. No action needed.
