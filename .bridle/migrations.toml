@@ -1,3 +1,5 @@
+announced = ["0002-standard-ticket-fields", "0004-ticket-links-in-frontmatter", "0005-a-ticket-for-every-active-task"]
+
 [[applied]]
 id = "0000-baseline"
 applied_at = "2026-10-08T23:09:28.369310818Z"
@@ -12,3 +14,8 @@ bridle_version = "0.7.6"
 id = "0007-gitignore-agent-site"
 applied_at = "2026-10-17T11:34:02.158236757Z"
 bridle_version = "0.7.6"
+
+[[applied]]
+id = "0008-gitignore-bridle-tmp"
+applied_at = "2026-11-14T12:05:21.109881477Z"
+bridle_version = "0.8.0"
